@@ -77,8 +77,23 @@ ul, li {
 }
 
 .inputValueBar{
-	width: 50%;
-	height: 10%;
+	width: 100%;
+	height: 30%;
+	border-top: 0;
+	border-left: 0;
+	border-right: 0;
+	border-color: #1ae8c9;
+	border-width: thick;
+}
+
+.inputValueBar:hover{
+	transition: 0.25s ease-in-out;
+	background-color: #edebeb;
+}
+
+.inputValueBar:focus{
+	border-color: #14baa1;
+	outline: none;
 }
 
 .inputDiv{

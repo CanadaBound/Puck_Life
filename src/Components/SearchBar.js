@@ -2,29 +2,35 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import '../CSS/HomePage.css';
 import List from "@mui/material/List";
-import ListItem from '@mui/material/ListItem';
+import ListItem, { listItemClasses } from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import TextField from '@mui/material/TextField';
 
 
-function SearchBar({showSearch, displayCard, teamName, teamID}) {
+function SearchBar({showPlayerSearch, displayCard, teamName, teamID, toggleTeamSearch, toggleDivCard}) {
   var [teamsArray, setTeamsArray] = useState([[]]);
   var [filteredTeamsArray, setFilteredTeamsArray] = useState([[]]);
 
 
-  var [focused, setFocused] = useState(false)
+  var [focused, setFocused] = useState(false);
+  
+  
   function onFocus(){
     setFocused(true);
-    showSearch(false);
+    showPlayerSearch(false);
     displayCard(false);
+    toggleDivCard(false);
   }
-  var onBlur = () => setFocused(false)
+  function onBlur(){
+    setFocused(false);
+    toggleDivCard(true);
+  }
 
   function handleClick(id, name){
     teamName(name)
     teamID(id);
-    showSearch(true);
-   
+    showPlayerSearch(true);
+    toggleTeamSearch(false);
   }
 
 
@@ -35,7 +41,7 @@ function SearchBar({showSearch, displayCard, teamName, teamID}) {
     });
   }, []);
  
-    
+ 
     
 
 return (
@@ -43,20 +49,15 @@ return (
     
      <div className = "inputDiv">
      <form>
-   {/* <input 
+   <input 
    className="inputValueBar" 
    type="text" 
    defaultValue= ''
    placeholder="Type to filter" 
    onChange={e => setFilteredTeamsArray(teamsArray.filter(d => d.name.toLowerCase().includes(e.target.value.toLowerCase())))}
    onFocus = {onFocus}
-   onBlur = {onBlur}/> */}
+   onBlur = {onBlur}/>
 
-   <TextField label="Teams" color="secondary"  className="inputValueBar" onChange={e => setFilteredTeamsArray(teamsArray.filter(d => d.name.toLowerCase().includes(e.target.value.toLowerCase())))}
-   onFocus = {onFocus} onBlur = {onBlur}/>
-
-
-   
     {focused ? (
       <List
       sx={{
@@ -67,12 +68,17 @@ return (
         overflow: 'auto',
         maxHeight: 300,
         '& ul': { padding: 0 },
+        [`& .active, & .${listItemClasses.root}:hover`]: {
+          bgcolor: '#9c9c9c'
+          }
       }}>
      {filteredTeamsArray.sort((a, b) => a.name.localeCompare(b.name)).map(d => (
       <ListItem key={d.id} id={d.id} onMouseDown={() => handleClick(d.id, d.name)}>
-        <ListItemText>
-          {d.name}
-        </ListItemText>
+      <ListItemText primary ={d.name} >
+        
+      </ListItemText>
+          
+        
         </ListItem>
      ))}
      </List> 

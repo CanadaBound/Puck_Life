@@ -1,0 +1,146 @@
+.Team-Standings-Container{
+    margin: 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    height: 100%;
+    background-color:#242526;
+}
+
+.Team-Standings-Title{
+    height: 10%;
+    border-bottom: 1px solid white;
+}
+
+.Division-Container{
+    height: 10%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    border-bottom: 1px solid white;
+}
+
+.Standings-Table{
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    font-size: large;
+    border-bottom: 1px solid white;
+    margin-top: 2%;
+    margin-bottom: 1%;
+}
+
+.H1-TeamStandings{
+    color: white;
+}
+
+.Atlantic, .Metropolitan, .Central, .Pacific{
+    color: white;
+    cursor: pointer;
+}
+
+.Atlantic-Active{
+    color: #ff272c;
+    border-bottom: 5px solid #ff272c;
+    cursor: default;
+}
+
+.Metropolitan-Active{
+    color: #ff8200;
+    border-bottom: 5px solid #ff8200;
+    cursor: default;
+}
+
+.Central-Active{
+    color: #0089dd;
+    border-bottom: 5px solid #0089dd;
+    cursor: default;
+}
+.Pacific-Active{
+    color: #00b16a;
+    border-bottom: 5px solid #00b16a;
+    cursor: default;
+}
+
+.Atlantic :hover{
+    color: #ff272c;
+    cursor: pointer;
+}
+
+.Metropolitan :hover {
+    color: #ff8200;
+    cursor: pointer;
+}
+
+.Central :hover {
+    color: #0089dd;
+    cursor: pointer;
+}
+
+.Pacific :hover {
+    color: #00b16a;
+    cursor: pointer;
+}
+
+table{
+    border-collapse: separate;
+    border-spacing: 0 15px;
+
+
+}
+
+.Legend{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2%;
+    
+}
+
+.Legend-Title{
+    width: 100%;
+    height: 20%;
+    color: white;
+    border-bottom: 1px solid white;
+    padding-bottom: 1%;
+}
+.Legend-Title h4{
+    float: left;
+    padding-left: 2%;
+    margin: 0%;
+}
+
+.Legend-Description{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-grow: 1;
+    padding-top: 2%;
+}
+
+.Legend-Acronym, .Legend-Acronym-Description{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.Legend-Acronym p{
+    font-weight: bold;
+}
+
+.Legend-Acronym-Description {
+    margin-left: 10%;
+}
+
+.Legend-Acronym p, .Legend-Acronym-Description p{
+    margin: 0%;
+    color: white;
+    font-size: 12px;
+    float: left;
+}

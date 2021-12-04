@@ -7,12 +7,14 @@ import SearchTeams from './SearchTeams';
 import HockeyTemplate from '../Assets/HockeyTemplate.png'
 import PlayerDetails from './PlayerDetails';
 import DivisionCardLayout from './DivisionCardLayout';
+import TeamCardLayout from './TeamCardLayout';
 
 function Homepage() {
 
   var [showPlayerSearch, setShowPlayerSearch] = useState(false);
   var [showTeamSearch, setShowTeamSearch] = useState(true);
   var [showCard, setShowCard] = useState(false);
+  var [showTeamCard, setShowTeamCard] = useState(false);
   var [showDivisionCard, setShowDivisionCard] = useState(true);
   var [showName, setShowName] = useState('');
   var [showPlayer, setShowPlayer] = useState('');
@@ -29,6 +31,8 @@ function Homepage() {
          {(showCard ? 
             <PlayerDetails player = {showPlayer} team = {showName} jersey = {playerNumber}/>
           : null)}
+
+          {(showTeamCard ? <TeamCardLayout teamName = {showName} teamStatsID = {teamID}/> : null)}
       </div>
       <div className = "SearchContent">
           <div className = "SearchDescription">
@@ -36,18 +40,21 @@ function Homepage() {
                 <HomePageArrow/>
           </div>
           <div className = "SearchBar">
-                {showTeamSearch ? <SearchBar showPlayerSearch = {setShowPlayerSearch} displayCard = {setShowCard} teamName = {setShowName} teamID = {setTeamID} toggleTeamSearch = {setShowTeamSearch} toggleDivCard = {setShowDivisionCard}/> : null}
+                {showTeamSearch ? <SearchBar toggleTeamCard = {setShowTeamCard} showPlayerSearch = {setShowPlayerSearch} displayCard = {setShowCard} teamName = {setShowName} teamID = {setTeamID} toggleTeamSearch = {setShowTeamSearch} toggleDivCard = {setShowDivisionCard}/> : null}
                 {(showPlayerSearch ?  <div className = "SearchResults">
-              <SearchTeams 
+              
+              <SearchTeams
+              toggleTeamCard = {setShowTeamCard} 
               toggleDivCard = {setShowDivisionCard}
               teamName = {showName} 
               TeamID = {teamID} 
               setPlayer = {setShowPlayer} 
               setLink = {setPlayerLink} 
-              toggleCard = {setShowCard} 
+              toggleCard = {setShowCard}
               setJersey = {setPlayerNumber} 
               toggleTeamSearch = {setShowTeamSearch} 
-              togglePlayerSearch = {setShowPlayerSearch} /> 
+              togglePlayerSearch = {setShowPlayerSearch} />
+
           </div>: null)}
           </div>
           

@@ -8,7 +8,7 @@ import ListSubheader from '@mui/material/ListSubheader';
 import '../CSS/SearchResult.css';
 import {AiFillCloseSquare} from 'react-icons/ai';
 
-function SearchTeams({toggleDivCard, teamName, TeamID, setPlayer, setLink, toggleCard, setJersey, toggleTeamSearch, togglePlayerSearch, toggleTeam}){
+function SearchTeams({toggleTeamCard, toggleDivCard, teamName, TeamID, setPlayer, setLink, toggleCard, setJersey, toggleTeamSearch, togglePlayerSearch, toggleTeam}){
     var [teamArr, setTeamArr] = useState([]);
     var [filteredTeamsArray, setFilteredTeamsArray] = useState([]);
     var [childBgColour, setChildBgColour] = useState(false);
@@ -29,6 +29,7 @@ function SearchTeams({toggleDivCard, teamName, TeamID, setPlayer, setLink, toggl
       setLink(link);
       setJersey(jerseyNumber);
       toggleCard(true);
+      toggleTeamCard(false);
   }
     
   function onBlur(){
@@ -42,7 +43,7 @@ function SearchTeams({toggleDivCard, teamName, TeamID, setPlayer, setLink, toggl
     togglePlayerSearch(false);
     toggleCard(false);
     toggleDivCard(true);
-    
+    toggleTeamCard(false);
   }
     
    

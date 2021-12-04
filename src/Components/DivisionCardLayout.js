@@ -82,29 +82,7 @@ return (
 
 <div className = 'RankingDiv1'>  
     <div className = 'playerImage1'>
-    {/* {(<List
-      sx={{
-        width: '100%',
-        maxWidth: 360,
-        bgcolor: 'background.paper',
-        position: 'relative',
-        overflow: 'auto',
-        maxHeight: 300,
-        '& ul': { padding: 0 },
-        [`& .active, & .${listItemClasses.root}:hover`]: {
-          bgcolor: '#edebeb'
-          }
-      }}>
-     {rankingArr.map(d => (
-      <ListItem key={d.team.id} id={d.team.id} >
-      <ListItemText primary ={d.team.name} secondary = {d.pointsPercentage.toFixed(3)} >
-    
-      </ListItemText>
-          
-        
-        </ListItem>
-     ))}
-     </List> )} */}
+   
 
 <TableContainer style={{ maxHeight: 400 }}>
 <Table stickyHeader>

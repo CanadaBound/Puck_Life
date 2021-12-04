@@ -1,0 +1,42 @@
+.Instruction-Container{
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ width: max-content;
+}
+
+.Upper-Instruction-Wording{
+    color: #9a9c9a;
+    font-size: 25px;
+}
+
+.Lower-Instruction-Wording{
+    color: #9a9c9a;
+    font-size: 25px;
+}
+
+.Upper-Instruction-Wording-Container{
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+}
+
+.Lower-Instruction-Wording-Container{
+    display: flex;
+    flex-direction: row;
+    width: 30%;
+}
+
+.Upper-Arrow-SVG{
+    margin: 1%;
+}
+
+.Lower-Arrow-SVG{
+    margin: 1%;
+}
+
+.Lower-Instruction-Container{
+    display: flex;
+    flex-direction: row;
+    
+}

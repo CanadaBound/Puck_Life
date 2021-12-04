@@ -1,7 +1,9 @@
 .App {
+  overflow: hidden;
   text-align: center;
   height: 100vh;
   width: 100vw;
+  background-color: #18191A;
 }
 
 .App-logo {
@@ -40,22 +42,9 @@
 }
 
 
-.HomePageLayout{
-  height: 100vh;
-  width: 100vw;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  flex-direction: column;
-  flex-shrink: 0; 
+@media screen and (max-width: 500px){
+  .App{
+    overflow-y: scroll;
+  }
 }
 
-.HomePageLogo{
-  width: 100%;
-  margin-bottom: 10%;
-}
-
-.HomePageDesc{
-  width: 100%;
-  margin-bottom: 2%;
-}

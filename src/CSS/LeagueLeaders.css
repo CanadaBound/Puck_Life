@@ -1,0 +1,86 @@
+.Leaders-Container{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.Leaders-Title{
+    height: 10%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.Leaders-Title h1 {
+    color: white;
+    font-weight: bolder;
+}
+
+.Leaders-Selection-Container{
+    height: 10%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    flex-grow: 1;
+    border-bottom: 1px solid white;
+    padding-bottom: 1.3%;
+}
+
+.Leaders-Stats-Container{
+    height: 80%;
+    width: 100%;
+}
+
+.toggleArrow :hover{
+    color: #0088df;
+    cursor: pointer;
+
+}
+
+.toggleArrow {
+    margin-left: 4%;
+    margin-right: 4%;
+}
+.Stat-Select-1, .Stat-Select-2, .Stat-Select-3{
+    color: white;
+    margin-left: 5%;
+    margin-top: 5%;
+    cursor: pointer;
+}
+
+.Stat-Select-1-Active, .Stat-Select-2-Active, .Stat-Select-3-Active{
+    color: #0088df;
+    margin-left: 5%;
+    margin-top: 5%;
+    border-bottom: 5px solid #0088df;
+    font-weight: 800;
+    cursor: default;
+}
+
+.Stat-Select-1:hover, .Stat-Select-2:hover, .Stat-Select-3:hover{
+    color: #0088df;
+    font-weight: 800;
+    cursor: pointer;
+  
+}
+
+@media screen and (max-width: 500px){
+    .Stat-Select-1-Active, .Stat-Select-2-Active, .Stat-Select-3-Active{
+        border-bottom: 2.5px solid #0088df;
+        height: min-content;
+    }
+    .Stat-Select-1-Active p, .Stat-Select-2-Active p, .Stat-Select-3-Active p{
+       margin: 0 0 10% 0;
+    }
+    
+}
+    
+
+

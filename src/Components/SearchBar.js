@@ -7,7 +7,7 @@ import ListItemText from '@mui/material/ListItemText';
 import TextField from '@mui/material/TextField';
 
 
-function SearchBar({showPlayerSearch, displayCard, teamName, teamID, toggleTeamSearch, toggleDivCard}) {
+function SearchBar({toggleTeamCard, showPlayerSearch, displayCard, teamName, teamID, toggleTeamSearch, toggleDivCard}) {
   var [teamsArray, setTeamsArray] = useState([[]]);
   var [filteredTeamsArray, setFilteredTeamsArray] = useState([[]]);
 
@@ -31,6 +31,7 @@ function SearchBar({showPlayerSearch, displayCard, teamName, teamID, toggleTeamS
     teamID(id);
     showPlayerSearch(true);
     toggleTeamSearch(false);
+    toggleTeamCard(true);
   }
 
 

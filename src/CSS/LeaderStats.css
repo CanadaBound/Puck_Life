@@ -1,0 +1,202 @@
+.Player-Stats{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.Stats {
+    color: white;
+}
+
+.Player-Stats-Row{
+    color:white;
+    font-size: 20px;
+    
+}
+
+.Player-Stats-Table{
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.Player-Stats-Table li {
+    list-style-type: none;
+    margin: 2.5% 0% 2.5% 0% ;
+}
+
+.Stat{
+    
+    float:inline-end;
+}
+
+.Name{
+  float: inline-start;
+}
+
+
+.Player-Stats-Row-Active{
+    color:white;
+    font-weight: 700;
+    font-size: 20px;
+    
+}
+
+.Individual-Stats-Container{
+    width: 50%;
+    height: 100%;;
+}
+
+.Total-Stats-Container{
+    width: 50%;
+    height: 100%;;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.Individual-Picture-Container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 25%;
+}
+
+.Individual-Name-Container{
+    width: 100%;
+    height: min-content;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    margin-bottom: 5%;
+
+}
+
+.Individual-Team-Name-Container{
+    width: 100%;
+    height: min-content;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    margin-bottom: 5%;
+}
+
+.Individual-Value-Container{
+    width: 100%;
+    height: 15%;
+    width: 100%;
+    height: min-content;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+
+.Picture-Tag{
+    clip-path: circle();
+    object-fit: contain;
+    height: 75%;
+    width: 75%;
+}
+
+.Jersey-Number{
+    margin: 0;
+    font-size: 35px;
+    color: white;
+    float: right;
+}
+
+.Jersey-Number-Container{
+    width: 50%;
+    height: min-content;
+    padding-right: 2.5%;
+}
+
+.Player-Name-Container{
+    width: 50%;
+    height: min-content;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 2.5%;
+    justify-content: center;
+    font-size: 25px;
+    color: white;
+    border-left: 1px solid grey;
+}
+
+.Team-Name-Container{
+    padding-right: 2.5%;
+    width: max-content;
+    height: min-content;
+}
+
+.Position-Container{
+    padding-left: 2.5%;
+    width: min-content;
+    height: min-content;
+    border-left: 1px solid grey;
+}
+
+.Team-Name{
+    margin: 0;
+    font-size: 15px;
+    color: white;
+    float: right;
+}
+
+.Position{
+    margin: 0;
+    font-size: 15px;
+    color: white;
+    float: left;
+}
+
+.Stat-Container{
+    width: min-content;
+    height: min-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.Stat-Type{
+    font-size: 15px;
+    color: white;
+    
+}
+
+.Stat-Value{
+    font-size: 45px;
+    color: white;
+    font-weight: 800;
+}
+
+@media screen and (max-width: 500px){
+    .Total-Stats-Container{
+        overflow: hidden;
+        overflow-y: scroll;
+        margin: 0 2% 0 0;
+    }
+    .Individual-Stats-Container{
+        padding: 0 5% 0 0 ;
+    }
+
+    .Player-Stats-Row{
+        font-size: 17.5px;
+    }
+    
+}

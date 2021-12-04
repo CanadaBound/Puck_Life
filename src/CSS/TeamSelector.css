@@ -1,0 +1,40 @@
+.logo{
+    /* clip-path: circle(); */
+    max-height:75%;
+    max-width: 75%;
+    opacity: 25%;
+}
+
+.logo:hover{
+ opacity: 100%;
+ cursor: pointer;
+}
+
+.Team-Logo-Container{
+    overflow-y: scroll;
+    scrollbar-width: none;
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent; /* make scrollbar transparent */
+}
+
+@media screen and (max-width: 500px){
+    .Team-Logo-Container{
+        display: flex;
+        overflow-x: auto;
+        overflow-y:hidden;
+        height: 100%;
+        width: 100%;
+        scrollbar-width: none;
+        flex: 0 0;
+
+    }
+    .logo{
+        flex: 0 0 auto;
+       
+    }
+}
+

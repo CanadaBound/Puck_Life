@@ -3,8 +3,8 @@ import axios from 'axios';
 import '../CSS/PlayerDetails.css';
 import '../Fonts/Kabel-Black.otf';
 function PlayerDetails({player, team, jersey}){
-    const playerURLPlaceholder = `https://www.thesportsdb.com/api/v1/json/1/searchplayers.php?p=${player}`;
-    const teamURLPlaceholder = `https://www.thesportsdb.com/api/v1/json/1/searchteams.php?t=${team}`;
+    const playerURLPlaceholder = `https://www.thesportsdb.com/api/v1/json/2/searchplayers.php?p=${player}`;
+    const teamURLPlaceholder = `https://www.thesportsdb.com/api/v1/json/2/searchteams.php?t=${team}`;
     
     var [imageURL, setImageURL] = useState('');
     var [imageTeamURL, setImageTeamURL] = useState('');

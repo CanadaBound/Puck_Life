@@ -1,11 +1,12 @@
 import '../CSS/Instruction.css';
+import {FaHockeyPuck} from 'react-icons/fa';
 
 function Instruction(){
 
 
 
 return(
-
+<>
     <div className = 'Instruction-Container'>
         <div className = 'Upper-Arrow-SVG'>
             <svg xmlns="http://www.w3.org/2000/svg" width="100" height="75">
@@ -36,7 +37,12 @@ return(
             </div>
         </div>
     </div>
-
+    <div className = 'Instruction-Container-Mobile'>
+      <div className = 'Instruction-Text-Div'><span className = 'Text-Number'>1. </span><span>Scroll and select a team by tapping on the logo.</span></div>  
+      <div className = 'Instruction-Text-Div'><span className = 'Text-Number'>2. </span><span>Tap the left or right arrow to change the player positions.</span></div>  
+      <div className = 'Instruction-Text-Div'><span className = 'Text-Number'>3. </span><span>Tap on one of the 3 stats to display the chosen statistic.</span></div>  
+    </div>
+</>
 );
 
 }

@@ -1,7 +1,7 @@
 .logo{
     /* clip-path: circle(); */
-    max-height:75%;
-    max-width: 75%;
+    max-height:100px;
+    max-width: 100px;
     opacity: 25%;
 }
 
@@ -15,26 +15,43 @@
     scrollbar-width: none;
     margin-top: 1%;
     margin-bottom: 1%;
+    height: min-content;
 }
 ::-webkit-scrollbar {
     width: 0px;
     background: transparent; /* make scrollbar transparent */
 }
 
-@media screen and (max-width: 500px){
+
+@media screen and (max-width: 930px){
+    .logo{
+        height: 75px;
+        width: 75px;
+    }
+}
+
+@media screen and (max-width: 694px){
+    .logo{
+        height: 60px;
+        width: 60px;
+    }
+}
+
+@media screen and (max-width: 620px){
     .Team-Logo-Container{
         display: flex;
         overflow-x: auto;
         overflow-y:hidden;
-        height: 100%;
+        height: 100px !important;
         width: 100%;
         scrollbar-width: none;
-        flex: 0 0;
+        flex: none;
 
     }
     .logo{
-        flex: 0 0 auto;
-       
+        flex: none;
+        height: 100px;
+        width: 100px;
     }
 }
 

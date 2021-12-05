@@ -1,5 +1,5 @@
 .Leaders-Container{
-    height: 100%;
+    height: min-content;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -8,33 +8,35 @@
 }
 
 .Leaders-Title{
-    height: 10%;
+    height: max-content;
     width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: center;
-    align-items: center;
+    align-items: flex-end;
+    margin: 5% 0 0 0;
 }
 
 .Leaders-Title h1 {
     color: white;
     font-weight: bolder;
+    margin: 0;
 }
 
 .Leaders-Selection-Container{
-    height: 10%;
+    height: max-content;
     width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
-    align-items: center;
+    align-items: flex-end;
     flex-grow: 1;
     border-bottom: 1px solid white;
-    padding-bottom: 1.3%;
+    /* padding-bottom: 1.3%; */
 }
 
 .Leaders-Stats-Container{
-    height: 80%;
+    height: max-content;
     width: 100%;
 }
 
@@ -45,42 +47,43 @@
 }
 
 .toggleArrow {
-    margin-left: 4%;
-    margin-right: 4%;
+    
+    margin: 0 4% 1% 4%;
 }
 .Stat-Select-1, .Stat-Select-2, .Stat-Select-3{
     color: white;
-    margin-left: 5%;
-    margin-top: 5%;
+    margin: 2.5% 0 0 5%;
+    font-size: 1.25em;
     cursor: pointer;
 }
 
 .Stat-Select-1-Active, .Stat-Select-2-Active, .Stat-Select-3-Active{
     color: #0088df;
-    margin-left: 5%;
-    margin-top: 5%;
+    margin: 2.5% 0 0 5%;
     border-bottom: 5px solid #0088df;
     font-weight: 800;
     cursor: default;
+    font-size: 1.25em;
 }
 
 .Stat-Select-1:hover, .Stat-Select-2:hover, .Stat-Select-3:hover{
     color: #0088df;
     font-weight: 800;
     cursor: pointer;
+    font-size: 1.25em;
   
 }
 
-@media screen and (max-width: 500px){
+@media screen and (max-width: 620px){
+    .Leaders-Container{
+        height: max-content;
+    }
     .Stat-Select-1-Active, .Stat-Select-2-Active, .Stat-Select-3-Active{
-        border-bottom: 2.5px solid #0088df;
+        
         height: min-content;
     }
-    .Stat-Select-1-Active p, .Stat-Select-2-Active p, .Stat-Select-3-Active p{
-       margin: 0 0 10% 0;
-    }
+  
     
 }
-    
 
 

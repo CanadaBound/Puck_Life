@@ -86,7 +86,7 @@ function TeamStandings(){
                 </div>
             </div>
             <div className = 'Standings-Table'>
-            <table>
+            {/* <table>
                 <tr className = 'Standings-Row'>
                     <th>Rank</th>
                     <th>Team</th>
@@ -110,7 +110,43 @@ function TeamStandings(){
                         <td>{d.streak.streakCode}</td>
                     </tr>
                 ))}
-            </table>
+            </table> */}
+                    <div className = 'Standings-Row'>
+                    <div className = 'Standings-Data-Title'><span>Rank</span></div>
+                    <div className = 'Standings-Data-Team-Title'><span>Team</span></div>
+                    <div className = 'Standings-Data-Title'><span>GP</span></div>
+                    <div className = 'Standings-Data-Title'><span>W</span></div>
+                    <div className = 'Standings-Data-Title'><span>L</span></div>
+                    <div className = 'Standings-Data-Title'><span>OT</span></div>
+                    <div className = 'Standings-Data-Title'><span>PTS</span></div>
+                    <div className = 'Standings-Data-Title'><span>Streak</span></div>
+                    </div>
+            
+
+                {divisionArr.map((d)=>(
+                    
+                    <div key = {d.team.id} className = 'Standings-Row'>
+                    <div className = 'Standings-Data'><span>{d.divisionRank}</span></div>
+                    <div className = 'Standings-Data-Team'><span>{d.team.name}</span></div>
+                    <div className = 'Standings-Data'><span>{d.gamesPlayed}</span></div>
+                    <div className = 'Standings-Data'><span>{d.leagueRecord.wins}</span></div>
+                    <div className = 'Standings-Data'><span>{d.leagueRecord.losses}</span></div>
+                    <div className = 'Standings-Data'><span>{d.leagueRecord.ot}</span></div>
+                    <div className = 'Standings-Data'><span>{d.points}</span></div>
+                    <div className = 'Standings-Data'><span>{d.streak.streakCode}</span></div>
+                    </div>
+                //     <li key = {d.team.id} className = 'Standings-Row'>
+                //     <span>{d.divisionRank}</span>
+                //     <span>{d.team.name}</span>
+                //     <span>{d.gamesPlayed}</span>
+                //     <span>{d.leagueRecord.wins}</span>
+                //     <span>{d.leagueRecord.losses}</span>
+                //     <span>{d.leagueRecord.ot}</span>
+                //     <span>{d.points}</span>
+                //     <span>{d.streak.streakCode}</span>
+                // </li>
+                ))}
+            
             </div>
             <div className = 'Legend'>
                 <div className = 'Legend-Title'>

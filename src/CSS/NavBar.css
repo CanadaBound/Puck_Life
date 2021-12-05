@@ -1,8 +1,9 @@
 .NavBar-Container{
     display: flex;
     flex-direction: row;
+    align-items: center;
     width: 100%;
-    height: 10%;
+    height: min-content;
     background-color: #242526;
 }
 
@@ -10,19 +11,23 @@
     width: 50%;
     height: 100%;
     background-color: #242526;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
 }
 .NavBar-Links{
     width: 50%;
     height: 100%;
     display: flex;
-    justify-content: space-evenly;
+    justify-content:flex-end;
     align-items: center;
     background-color: #242526;
+    padding-right: 5%;
 
 }
 
 .H2-Logo{
-    float: left;
     margin-left: 5% ;
     color:white;
 }
@@ -39,4 +44,10 @@
 .H2-NHL, .H2-LIIGA, .H2-SHL{
     margin: 50%;
     color: white;
+}
+
+@media screen and (max-width: 440px){
+    .H2-Logo{
+        font-size: 1.3em;
+    }
 }

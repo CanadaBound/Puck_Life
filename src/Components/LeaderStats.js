@@ -304,21 +304,25 @@ if(playerPos !== 1){
       {triggerStats && statSelect === 1? listOfStats.sort((a,b) => b.Points - a.Points ).slice(0,10).map((d)=>{
         
         return <li onMouseLeave= {((e) => handleMouseLeave(e))} onClick =  {(e)=>hoverOverPlayer(e)} onMouseEnter={(e)=>hoverOverPlayer(e)} className = 'Player-Stats-Row'id = {d.ID} key = {d.ID}>
-          <span className = 'Name'>{d.Name}</span>
+          
+          <span className = 'Name'>{d.First}</span>
+          <span className = 'Name'>{d.Last}</span>
           <span className = 'Stat'>{d.Points}</span>
         </li>}
       ) : null}
       {triggerStats && statSelect === 2? listOfStats.sort((a,b) => b.Goals - a.Goals ).slice(0,10).map((d)=>{
         
         return <li onMouseEnter={(e)=>hoverOverPlayer(e)} onClick =  {(e)=>hoverOverPlayer(e)} className = 'Player-Stats-Row' id = {d.ID} key = {d.ID}>
-          <span className = 'Name'>{d.Name}</span>
+          <span className = 'Name'>{d.First}</span>
+          <span className = 'Name'>{d.Last}</span>
           <span className = 'Stat'>{d.Goals}</span>
         </li>}
       ) : null}
       {triggerStats && statSelect === 3? listOfStats.sort((a,b) => b.Assists - a.Assists ).slice(0,10).map((d)=>{
         
         return <li onMouseEnter={(e)=>hoverOverPlayer(e)} onClick =  {(e)=>hoverOverPlayer(e)} className = 'Player-Stats-Row' id = {d.ID} key = {d.ID}>
-          <span className = 'Name'>{d.Name}</span>
+          <span className = 'Name'>{d.First}</span>
+          <span className = 'Name'>{d.Last}</span>
           <span className = 'Stat'>{d.Assists}</span>
         </li>}
       ) : null}
@@ -378,21 +382,24 @@ if(playerPos !== 1){
           {triggerStats && statSelect === 1? listOfStats.sort((a,b) => a.GAA - b.GAA ).slice(0,10).map((d)=>{
             
             return <li onMouseEnter={(e)=>hoverOverPlayer(e)} onClick =  {(e)=>hoverOverPlayer(e)} className = 'Player-Stats-Row' id = {d.ID} key = {d.ID}>
-              <span className = 'Name'>{d.Name}</span>
+              <span className = 'Name'>{d.First}</span>
+              <span className = 'Name'>{d.Last}</span>
               <span className = 'Stat'>{parseInt(d.GAA).toFixed(2)}</span>
             </li>}
           ) : null}
           {triggerStats && statSelect === 2? listOfStats.sort((a,b) => b.SavePercentage - a.SavePercentage ).slice(0,10).map((d)=>{
             
             return <li onMouseEnter={(e)=>hoverOverPlayer(e)} onClick =  {(e)=>hoverOverPlayer(e)} className = 'Player-Stats-Row' id = {d.ID} key = {d.ID}>
-              <span className = 'Name'>{d.Name}</span>
+              <span className = 'Name'>{d.First}</span>
+              <span className = 'Name'>{d.Last}</span>
               <span className = 'Stat'>{d.SavePercentage}</span>
             </li>}
           ) : null}
           {triggerStats && statSelect === 3? listOfStats.sort((a,b) => b.Shutouts - a.Shutouts ).slice(0,10).map((d)=>{
             
             return <li onMouseEnter={(e)=>hoverOverPlayer(e)} onClick =  {(e)=>hoverOverPlayer(e)} className = 'Player-Stats-Row' id = {d.ID} key = {d.ID}>
-              <span className = 'Name'>{d.Name}</span>
+              <span className = 'Name'>{d.First}</span>
+              <span className = 'Name'>{d.Last}</span>
               <span className = 'Stat'>{d.Shutouts}</span>
             </li>}
           ) : null}

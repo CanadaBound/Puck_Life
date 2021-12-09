@@ -71,46 +71,21 @@ function TeamStandings(){
             <div className = 'Team-Standings-Title'>
                 <h1 className = 'H1-TeamStandings'> Team Standings</h1>
             </div>
-            <div className = 'Division-Container'>
-                <div className = {cssMetropolitan} onClick = {(e)=> setDivisionNo(0)}>
+            <div tabIndex = {0} className = 'Division-Container'>
+                <div tabIndex = {0} id = {0} className = {cssMetropolitan} onKeyDown = {()=> setDivisionNo(0)} onClick = {()=> setDivisionNo(0)}>
                     <h3>MET</h3>
                 </div>
-                <div className = {cssAtlantic} onClick = {()=> setDivisionNo(1)}>
+                <div tabIndex = {0} id = {1} className = {cssAtlantic} onKeyDown = {()=> setDivisionNo(1)} onClick = {()=> setDivisionNo(1)}>
                     <h3>ATL</h3>
                 </div>
-                <div className = {cssCentral} onClick = {()=> setDivisionNo(2)}>
+                <div tabIndex = {0} id = {2} className = {cssCentral} onKeyDown = {()=> setDivisionNo(2)} onClick = {()=> setDivisionNo(2)}>
                     <h3>CEN</h3>
                 </div>
-                <div className = {cssPacific} onClick = {()=> setDivisionNo(3)}>
+                <div tabIndex = {0} id = {3} className = {cssPacific} onKeyDown = {()=> setDivisionNo(3)} onClick = {()=> setDivisionNo(3)}>
                     <h3>PAC</h3>
                 </div>
             </div>
             <div className = 'Standings-Table'>
-            {/* <table>
-                <tr className = 'Standings-Row'>
-                    <th>Rank</th>
-                    <th>Team</th>
-                    <th>GP</th>
-                    <th>W</th>
-                    <th>L</th>
-                    <th>OT</th>
-                    <th>PTS</th>
-                    <th>Streak</th>
-                </tr>
-
-                {divisionArr.map((d)=>(
-                    <tr key = {d.team.id}className = 'Standings-Row'>
-                        <td>{d.divisionRank}</td>
-                        <td>{d.team.name}</td>
-                        <td>{d.gamesPlayed}</td>
-                        <td>{d.leagueRecord.wins}</td>
-                        <td>{d.leagueRecord.losses}</td>
-                        <td>{d.leagueRecord.ot}</td>
-                        <td>{d.points}</td>
-                        <td>{d.streak.streakCode}</td>
-                    </tr>
-                ))}
-            </table> */}
                     <div className = 'Standings-Row'>
                     <div className = 'Standings-Data-Title'><span>Rank</span></div>
                     <div className = 'Standings-Data-Team-Title'><span>Team</span></div>
@@ -135,16 +110,7 @@ function TeamStandings(){
                     <div className = 'Standings-Data'><span>{d.points}</span></div>
                     <div className = 'Standings-Data'><span>{d.streak.streakCode}</span></div>
                     </div>
-                //     <li key = {d.team.id} className = 'Standings-Row'>
-                //     <span>{d.divisionRank}</span>
-                //     <span>{d.team.name}</span>
-                //     <span>{d.gamesPlayed}</span>
-                //     <span>{d.leagueRecord.wins}</span>
-                //     <span>{d.leagueRecord.losses}</span>
-                //     <span>{d.leagueRecord.ot}</span>
-                //     <span>{d.points}</span>
-                //     <span>{d.streak.streakCode}</span>
-                // </li>
+            
                 ))}
             
             </div>

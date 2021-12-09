@@ -2,23 +2,48 @@ import { useEffect, useState, useRef } from "react";
 import '../CSS/LeaderStats.css';
 import teamDetail from "../Assets/teamDetail";
 import axios from "axios";
+import { FaThermometerThreeQuarters } from "react-icons/fa";
 
 function LeaderStats({playerPos, teams, statSelect}){
 const isInitialMount = useRef(true);
 
-const [listOfStats, setListOfStats] = useState([]);
+var [listOfStats, setListOfStats] = useState([]);
 var [selectedPlayer, setSelectedPlayer] = useState({TeamID: '0', TeamName: 'Test Team', ID: '12345', Name: 'Bobby Bobson', First: 'Bobby', Last: 'Bobson', JerseyNo: '99', PositionCode: 'C', Points: '0', Goals: '0', Assists: '0'});
 var [selectedGoalie, setSelectedGoalie] = useState({TeamID: '0', TeamName: 'Test Team', ID: '12345', Name: 'Bobby Bobson', First: 'Bobby', Last: 'Bobson', JerseyNo: '99', PositionCode: 'G', GAA: '2.124', SavePercentage: '0.999', Shutouts: '10'});
 var [playerURL, setPlayerURL] = useState('https://via.placeholder.com/150');
-var [cssTableRow, setCSSTableRow] = useState('Player-Stats-Row');
-const [triggerStats, setTriggerStats] = useState(false);
-const [showIndividualStats, setShowIndividualStats] = useState(false);
+var [triggerStats, setTriggerStats] = useState(false);
+var [showIndividualStats, setShowIndividualStats] = useState(false);
+var [isDesktop, setIsDesktop] = useState(true);
+const InactiveClass = 'Player-Stats-Row';
+const ActiveClass = 'Player-Stats-Row-Active';
+
+var liRef = useRef();
+var [refVal, setRefVal] = useState(null);
+var ulRef = useRef(null);
+
+useEffect(()=>{
+  if(navigator.maxTouchPoints>0){
+    setIsDesktop(false);
+  }
+}, [])
+
+useEffect(()=>{
+  
+    if(refVal !== null && liRef.current !== refVal){
+     
+      liRef.current.style.fontWeight = '400';
+      liRef.current = refVal;
+      liRef.current.style.fontWeight = '700'
+    
+    }
+  
+}, [refVal])
 
 //If it's not the first render and the listOfStats state has changed it will render the stats of the players
 useEffect(()=>{
   if(!isInitialMount.current){
     
-    console.log(listOfStats);
+    
     if(listOfStats.length !== 0){
       loadTopPlayer();
     }
@@ -140,11 +165,11 @@ function getPlayerIDs(teamID){
 }
 
 function hoverOverPlayer(e){
-  if(e.currentTarget.className === 'Player-Stats-Row'){
-    e.currentTarget.className = 'Player-Stats-Row-Active';
-  }else {
-    e.currentTarget.className = 'Player-Stats-Row';
-  }
+  
+  setRefVal(e.currentTarget);
+
+  e.currentTarget.style.fontWeight = '700';
+  
   setShowIndividualStats(true);
   if(playerPos !== 1){
     var statsObj = listOfStats.find(x => x.ID === e.currentTarget.id);
@@ -182,6 +207,7 @@ function hoverOverPlayer(e){
 }
 
 function loadTopPlayer(){
+  
   var tempArr = [];
   if(triggerStats){
     switch(statSelect){
@@ -196,7 +222,7 @@ function loadTopPlayer(){
         else {
           tempArr = [...listOfStats];
           tempArr = tempArr.sort((a,b) => a.GAA - b.GAA ).slice(0,1);
-          setSelectedPlayer(tempArr[0]);
+          setSelectedGoalie(tempArr[0]);
         }
         
       break;
@@ -208,7 +234,7 @@ function loadTopPlayer(){
         }else {
           tempArr = [...listOfStats];
           tempArr = tempArr.sort((a,b) => b.SavePercentage - a.SavePercentage ).slice(0,1);
-          setSelectedPlayer(tempArr[0]);
+          setSelectedGoalie(tempArr[0]);
         }
       break;
       case 3:
@@ -219,7 +245,7 @@ function loadTopPlayer(){
         }else {
           tempArr = [...listOfStats];
           tempArr = tempArr.sort((a,b) => b.Shutouts - a.Shutouts ).slice(0,1);
-          setSelectedPlayer(tempArr[0]);
+          setSelectedGoalie(tempArr[0]);
         }
       break;
       default:
@@ -230,9 +256,11 @@ function loadTopPlayer(){
               if(res.data.player[0].strCutout !== null){
                
                 setPlayerURL(res.data.player[0].strCutout);
-              }else{
+              }else if(res.data.player[0].strThumb !== null){
                 setPlayerURL(res.data.player[0].strThumb);
                 
+              }else{
+                setPlayerURL('https://via.placeholder.com/150');
               }
         }
       });
@@ -240,14 +268,16 @@ function loadTopPlayer(){
   }
 }
 
-function handleMouseLeave(e){
-  if(e.currentTarget.className === 'Player-Stats-Row'){
-    e.currentTarget.className = 'Player-Stats-Row-Active';
-  }else {
-    e.currentTarget.className = 'Player-Stats-Row';
-  }
-    
+
+function handleMouseLeave(){
+  setRefVal(ulRef.current.firstChild);
+  loadTopPlayer();
 }
+
+useEffect(()=>{
+  handleMouseLeave();
+}, [statSelect])
+
 
 
 
@@ -255,10 +285,10 @@ function handleMouseLeave(e){
 if(playerPos !== 1){
     return(
 
-  <div onMouseLeave = {()=>loadTopPlayer()}className = 'Player-Stats'>
-   <div className = 'Individual-Stats-Container'>
+  <div onMouseLeave = {()=> handleMouseLeave()} className = 'Player-Stats'>
+   <div className = 'Individual-Stats-Container' >
 
-      <div className = 'Individual-Picture-Container'>
+      <div className = 'Individual-Picture-Container' >
         
         <img className = 'Picture-Tag' alt = 'Hockey player' src = {playerURL}></img>
       
@@ -300,27 +330,30 @@ if(playerPos !== 1){
       </div>
     </div>
     <div className = 'Total-Stats-Container'>
-      <ul className = 'Player-Stats-Table'>
-      {triggerStats && statSelect === 1? listOfStats.sort((a,b) => b.Points - a.Points ).slice(0,10).map((d)=>{
-        
-        return <li onMouseLeave= {((e) => handleMouseLeave(e))} onClick =  {(e)=>hoverOverPlayer(e)} onMouseEnter={(e)=>hoverOverPlayer(e)} className = 'Player-Stats-Row'id = {d.ID} key = {d.ID}>
+      <ul ref = {ulRef} className = 'Player-Stats-Table'>
+      {triggerStats && statSelect === 1? listOfStats.sort((a,b) => b.Points - a.Points ).slice(0,10).map((d, index)=>{
+  
+        return <li tabIndex = {0} ref = {liRef} onKeyDown = {(e)=>hoverOverPlayer(e)} onClick = {(e)=>hoverOverPlayer(e)} onMouseEnter={(e)=>hoverOverPlayer(e)} className = {index===0 && isDesktop?ActiveClass:InactiveClass} id = {d.ID} key = {d.ID}>
           
           <span className = 'Name'>{d.First}</span>
           <span className = 'Name'>{d.Last}</span>
           <span className = 'Stat'>{d.Points}</span>
-        </li>}
-      ) : null}
-      {triggerStats && statSelect === 2? listOfStats.sort((a,b) => b.Goals - a.Goals ).slice(0,10).map((d)=>{
+        </li>
         
-        return <li onMouseEnter={(e)=>hoverOverPlayer(e)} onClick =  {(e)=>hoverOverPlayer(e)} className = 'Player-Stats-Row' id = {d.ID} key = {d.ID}>
+        
+      } 
+      ): null}
+      {triggerStats && statSelect === 2? listOfStats.sort((a,b) => b.Goals - a.Goals ).slice(0,10).map((d, index)=>{
+        
+        return <li tabIndex = {0} ref = {liRef} onKeyDown = {(e)=>hoverOverPlayer(e)} onMouseEnter={(e)=>hoverOverPlayer(e)} onClick =  {(e)=>hoverOverPlayer(e)} className = {index===0 && isDesktop?ActiveClass:InactiveClass} id = {d.ID} key = {d.ID}>
           <span className = 'Name'>{d.First}</span>
           <span className = 'Name'>{d.Last}</span>
           <span className = 'Stat'>{d.Goals}</span>
         </li>}
       ) : null}
-      {triggerStats && statSelect === 3? listOfStats.sort((a,b) => b.Assists - a.Assists ).slice(0,10).map((d)=>{
+      {triggerStats && statSelect === 3? listOfStats.sort((a,b) => b.Assists - a.Assists ).slice(0,10).map((d, index)=>{
         
-        return <li onMouseEnter={(e)=>hoverOverPlayer(e)} onClick =  {(e)=>hoverOverPlayer(e)} className = 'Player-Stats-Row' id = {d.ID} key = {d.ID}>
+        return <li tabIndex = {0} ref = {liRef} onKeyDown = {(e)=>hoverOverPlayer(e)} onMouseEnter={(e)=>hoverOverPlayer(e)} onClick =  {(e)=>hoverOverPlayer(e)} className = {index===0 && isDesktop?ActiveClass:InactiveClass} id = {d.ID} key = {d.ID}>
           <span className = 'Name'>{d.First}</span>
           <span className = 'Name'>{d.Last}</span>
           <span className = 'Stat'>{d.Assists}</span>
@@ -333,10 +366,10 @@ if(playerPos !== 1){
   }else{
     return(
 
-      <div onMouseLeave = {()=>loadTopPlayer()} className = 'Player-Stats'>
-        <div className = 'Individual-Stats-Container'>
+      <div onMouseLeave = {()=> handleMouseLeave()} className = 'Player-Stats'>
+        <div className = 'Individual-Stats-Container' >
     
-          <div className = 'Individual-Picture-Container'>
+          <div className = 'Individual-Picture-Container' >
           <div className = "Picture"/>
         <img className = 'Picture-Tag' alt = 'Hockey player' src = {playerURL}></img>
       </div>
@@ -378,26 +411,26 @@ if(playerPos !== 1){
           </div>
         </div>
         <div className = 'Total-Stats-Container'>
-          <ul className = 'Player-Stats-Table'>
-          {triggerStats && statSelect === 1? listOfStats.sort((a,b) => a.GAA - b.GAA ).slice(0,10).map((d)=>{
+          <ul ref = {ulRef} className = 'Player-Stats-Table'>
+          {triggerStats && statSelect === 1? listOfStats.sort((a,b) => a.GAA - b.GAA ).slice(0,10).map((d, index)=>{
             
-            return <li onMouseEnter={(e)=>hoverOverPlayer(e)} onClick =  {(e)=>hoverOverPlayer(e)} className = 'Player-Stats-Row' id = {d.ID} key = {d.ID}>
+            return <li tabIndex = {0} ref = {liRef} onKeyDown = {(e)=>hoverOverPlayer(e)} onMouseEnter={(e)=>hoverOverPlayer(e)} onClick =  {(e)=>hoverOverPlayer(e)} className = {index===0 && isDesktop?ActiveClass:InactiveClass} id = {d.ID} key = {d.ID}>
               <span className = 'Name'>{d.First}</span>
               <span className = 'Name'>{d.Last}</span>
               <span className = 'Stat'>{parseInt(d.GAA).toFixed(2)}</span>
             </li>}
           ) : null}
-          {triggerStats && statSelect === 2? listOfStats.sort((a,b) => b.SavePercentage - a.SavePercentage ).slice(0,10).map((d)=>{
+          {triggerStats && statSelect === 2? listOfStats.sort((a,b) => b.SavePercentage - a.SavePercentage ).slice(0,10).map((d, index)=>{
             
-            return <li onMouseEnter={(e)=>hoverOverPlayer(e)} onClick =  {(e)=>hoverOverPlayer(e)} className = 'Player-Stats-Row' id = {d.ID} key = {d.ID}>
+            return <li tabIndex = {0} ref = {liRef} onKeyDown = {(e)=>hoverOverPlayer(e)} onMouseEnter={(e)=>hoverOverPlayer(e)} onClick =  {(e)=>hoverOverPlayer(e)} className = {index===0 && isDesktop?ActiveClass:InactiveClass} id = {d.ID} key = {d.ID}>
               <span className = 'Name'>{d.First}</span>
               <span className = 'Name'>{d.Last}</span>
               <span className = 'Stat'>{d.SavePercentage}</span>
             </li>}
           ) : null}
-          {triggerStats && statSelect === 3? listOfStats.sort((a,b) => b.Shutouts - a.Shutouts ).slice(0,10).map((d)=>{
+          {triggerStats && statSelect === 3? listOfStats.sort((a,b) => b.Shutouts - a.Shutouts ).slice(0,10).map((d, index)=>{
             
-            return <li onMouseEnter={(e)=>hoverOverPlayer(e)} onClick =  {(e)=>hoverOverPlayer(e)} className = 'Player-Stats-Row' id = {d.ID} key = {d.ID}>
+            return <li tabIndex = {0} ref = {liRef} onKeyDown = {(e)=>hoverOverPlayer(e)} onMouseEnter={(e)=>hoverOverPlayer(e)} onClick =  {(e)=>hoverOverPlayer(e)} className = {index===0 && isDesktop?ActiveClass:InactiveClass} id = {d.ID} key = {d.ID}>
               <span className = 'Name'>{d.First}</span>
               <span className = 'Name'>{d.Last}</span>
               <span className = 'Stat'>{d.Shutouts}</span>

@@ -1,14 +1,17 @@
 import axios from "axios";
 import '../CSS/TeamSelector.css';
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import teamDetail from "../Assets/teamDetail";
 
 function TeamSelector( {toggleStats, setListTeams}) {
 
-    const [listOfTeams, setListOfTeams] = useState([]);
-    const [listOfURL, setListOfURL] = useState([]);
     const [selectedTeams, setSelectedTeams] = useState([]);
-
+    const imageDivRef = useRef();
+    const imageRef = useRef();
+    
+    useEffect(()=>{
+        imageRef.current = imageDivRef.current.firstChild;
+    },[])
     useEffect(()=>{
         console.log(selectedTeams);
         setListTeams(selectedTeams);
@@ -47,15 +50,53 @@ function TeamSelector( {toggleStats, setListTeams}) {
         
     }
 
+    function setElementTabIndex(imgRef){
+        imageRef.current.tabIndex = -1;
+        imageRef.current = imgRef;
+        imageRef.current.tabIndex = 0;
+        imageRef.current.focus();
+    }
+
+    function handleKeyDown(e){
+        
+        if (e.key === 'Enter') {
+            handleClick(e);
+        }
+        if( e.key === 'ArrowDown'){
+            console.log(imageRef.current.id);
+            if(imageRef.current.id < 55){
+                setElementTabIndex(imageRef.current.nextElementSibling);
+                
+            }
+            else{
+                setElementTabIndex(imageDivRef.current.firstChild);
+                
+            }
+        }
+        if( e.key === 'ArrowUp'){
+            if(imageRef.current.id > 1){
+                setElementTabIndex(imageRef.current.previousElementSibling);
+                
+            }
+            else{
+                setElementTabIndex(imageDivRef.current.lastElementChild);
+               
+            }
+        }
+        
+        
+    }
+
 return (
 
-        <div className = 'Team-Logo-Container'>
-            {teamDetail.map((Teams)=>(
+        <div tabIndex = {0} ref = {imageDivRef} className = 'Team-Logo-Container'>
+            {teamDetail.map((Teams, index)=>{
                 
                 
-                    <img onClick={(e) => handleClick(e)} key = {Teams.ID} id = {Teams.ID} alt = {Teams.Name +' Logo'} src = {Teams.URL} className = 'logo'/>
+                return <img ref = {imageRef} tabindex = {index === 0 ? 0 : -1} aria-label = 'Click to select team' onClick={(e) => handleClick(e)} onKeyDown = {(e)=> handleKeyDown(e)}key = {Teams.ID} id = {Teams.ID} alt = {Teams.Name +' Logo'} src = {Teams.URL} className = 'logo'/>
                
-            ))}
+                }            
+            )}
 
 
         </div>

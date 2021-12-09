@@ -11,7 +11,7 @@ function NavBar(){
             </div>
             <div className = 'NavBar-Links'>
                 <div classname = 'Filter-Icon'>
-                    <FaSearch size = {24} color = 'white'/>
+                    <FaSearch aria-label = "Click here to search for teams" size = {24} color = 'white'/>
                 </div>
             </div>
             

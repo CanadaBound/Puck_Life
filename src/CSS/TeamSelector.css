@@ -5,6 +5,15 @@
     opacity: 25%;
 }
 
+.logo:focus{
+    opacity: 100%;
+    cursor: pointer;
+}
+
+.logo:focus-within{
+    opacity: 100%;
+}
+
 .logo:hover{
  opacity: 100%;
  cursor: pointer;
@@ -17,6 +26,11 @@
     margin-bottom: 1%;
     height: min-content;
 }
+
+.Team-Logo-Container:focus-within{
+    border: 1px solid grey;
+}
+
 ::-webkit-scrollbar {
     width: 0px;
     background: transparent; /* make scrollbar transparent */

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import {FaChevronLeft, FaChevronRight, FaTheaterMasks} from 'react-icons/fa';
 
 import '../CSS/LeagueLeaders.css';
@@ -16,8 +16,10 @@ function LeagueLeaders({showStats, getListTeams}){
     var [cssClass3, setCSSClass3] = useState('Stat-Select-3');
     var goalieOptions = ['GAA', 'SV%', 'SHUTOUTS'];
     var nonGoalieOptions = ['POINTS', 'GOALS', 'ASSISTS'];
-
-
+    const Stats1Ref = useRef();
+    const Stats2Ref = useRef();
+    const Stats3Ref = useRef();
+    
     function selectPosition(task){
         if(task === '+' && titleNo <2){
             setTitleNo(titleNo+1);
@@ -67,28 +69,61 @@ function LeagueLeaders({showStats, getListTeams}){
         }
     }
 
+    function handleArrowKey(event){
+        
+        if(event.key === 'Enter'){
+            if(event.target.id === '-'){
+                
+                selectPosition('-');
+            }else if(event.target.id === '+'){
+                
+                selectPosition('+');
+            }
+        }
+        
+    }
+
+    function handleEnter(event){
+        
+        if(event.key === 'Enter'){
+            console.log(event.currentTarget);
+            console.log(Stats1Ref);
+            if(Stats1Ref.current === event.currentTarget){
+                handleStatChange(event);
+                Stats1Ref.current.focus();
+            }else if (Stats2Ref.current === event.currentTarget){
+                handleStatChange(event);
+                Stats2Ref.current.focus();
+            }else if(Stats3Ref.current === event.currentTarget){
+                handleStatChange(event);
+                Stats3Ref.current.focus();
+            }
+        }
+        
+    }
+
     return(
         <div className = 'Leaders-Container'>
-            <div className = 'Leaders-Title'>
+            <div tabIndex = {0} className = 'Leaders-Title'>
                 
-                   <FaChevronLeft className = 'toggleArrow' size = {24} color = 'white' onClick={() => selectPosition('-')}/> 
+                   <FaChevronLeft tabIndex = {0} id = '-' aria-label = 'Select position before current one' className = 'toggleArrowLeft' size = {36} color = 'white' onClick={() => selectPosition('-')} onKeyDown ={(e)=>handleArrowKey(e)}/> 
               
                 
-                <h1>{title[titleNo]}</h1>
+                <span aria-label = 'Currently selected position' className = 'Player-Position-Type'>{title[titleNo]}</span>
                 
-                   <FaChevronRight className = 'toggleArrow' size = {24} color = 'white' onClick={() => selectPosition('+')}/> 
+                   <FaChevronRight tabIndex = {0} id = '+' aria-label = 'Select position after current one' className = 'toggleArrowRight' size = {36} color = 'white' onClick={() => selectPosition('+')} onKeyDown ={(e)=>handleArrowKey(e)}/> 
                 
                 
             </div>
-            <div className = 'Leaders-Selection-Container'>
-                <div className = {cssClass1}>
-                    <p onClick = {(e)=> handleStatChange(e)}>{titleNo == 1 ? goalieOptions[0]: nonGoalieOptions[0]}</p>
+            <div tabIndex = {0} className = 'Leaders-Selection-Container'>
+                <div className = {cssClass1} >
+                    <p tabIndex = {0} aria-label = 'Click to show points stat or goals against average if goalie' ref = {Stats1Ref} onKeyDown ={(e)=>handleEnter(e)} onClick = {(e)=> handleStatChange(e)}>{titleNo == 1 ? goalieOptions[0]: nonGoalieOptions[0]}</p>
                 </div>
-                <div className = {cssClass2}>
-                    <p onClick = {(e)=> handleStatChange(e)}>{titleNo == 1 ? goalieOptions[1]: nonGoalieOptions[1]}</p>
+                <div className = {cssClass2} >
+                    <p tabIndex = {0} aria-label = 'Click to show goals stat or save percentage if goalie' ref = {Stats2Ref} onKeyDown ={(e)=>handleEnter(e)} onClick = {(e)=> handleStatChange(e)}>{titleNo == 1 ? goalieOptions[1]: nonGoalieOptions[1]}</p>
                 </div>
                 <div className = {cssClass3}>
-                    <p onClick = {(e)=> handleStatChange(e)}>{titleNo == 1 ? goalieOptions[2]: nonGoalieOptions[2]}</p>
+                    <p tabIndex = {0} aria-label = 'Click to show assists stat or shutouts if goalie' ref = {Stats3Ref} onKeyDown ={(e)=>handleEnter(e)} onClick = {(e)=> handleStatChange(e)}>{titleNo == 1 ? goalieOptions[2]: nonGoalieOptions[2]}</p>
                 </div>
             </div>
             <div className = 'Leaders-Stats-Container'>

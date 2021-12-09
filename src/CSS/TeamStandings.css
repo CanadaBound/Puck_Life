@@ -21,6 +21,10 @@
     border-bottom: 1px solid white;
 }
 
+.Division-Container:focus-within{
+    border: 1px solid grey;
+}
+
 .Standings-Table{
     height: max-content;
     width: 100%;
@@ -108,8 +112,8 @@
 }
 
 .Atlantic-Active{
-    color: #ff272c;
-    border-bottom: 5px solid #ff272c;
+    color: #01c3d7;
+    border-bottom: 5px solid #01c3d7;
     cursor: default;
 }
 
@@ -120,18 +124,18 @@
 }
 
 .Central-Active{
-    color: #0089dd;
-    border-bottom: 5px solid #0089dd;
+    color: #fba5d9;
+    border-bottom: 5px solid #fba5d9;
     cursor: default;
 }
 .Pacific-Active{
-    color: #00b16a;
-    border-bottom: 5px solid #00b16a;
+    color: #00cc7a;
+    border-bottom: 5px solid #00cc7a;
     cursor: default;
 }
 
 .Atlantic :hover{
-    color: #ff272c;
+    color: #01c3d7;
     cursor: pointer;
 }
 
@@ -141,12 +145,12 @@
 }
 
 .Central :hover {
-    color: #0089dd;
+    color: #fba5d9;
     cursor: pointer;
 }
 
 .Pacific :hover {
-    color: #00b16a;
+    color: #00cc7a;
     cursor: pointer;
 }
 

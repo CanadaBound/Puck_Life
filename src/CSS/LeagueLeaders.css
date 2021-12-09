@@ -23,6 +23,10 @@
     margin: 0;
 }
 
+.Leaders-Title:focus-within{
+    border: 1px solid grey;
+}
+
 .Leaders-Selection-Container{
     height: max-content;
     width: 100%;
@@ -35,25 +39,38 @@
     /* padding-bottom: 1.3%; */
 }
 
+.Leaders-Selection-Container:focus-within{
+    border: 1px solid grey;
+}
+
 .Leaders-Stats-Container{
     height: max-content;
     width: 100%;
 }
 
-.toggleArrow :hover{
+.toggleArrowLeft :hover,.toggleArrowRight :hover {
     color: #0088df;
     cursor: pointer;
 
 }
 
-.toggleArrow {
+.toggleArrowLeft, .toggleArrowRight {
     
     margin: 0 4% 1% 4%;
 }
+
+.toggleArrowLeft :focus-within,.toggleArrowRight :focus-within {
+    color: #0088df;
+    cursor: pointer;
+
+}
+
+
 .Stat-Select-1, .Stat-Select-2, .Stat-Select-3{
     color: white;
     margin: 2.5% 0 0 5%;
     font-size: 1.25em;
+    font-weight: 600;
     cursor: pointer;
 }
 
@@ -72,6 +89,12 @@
     cursor: pointer;
     font-size: 1.25em;
   
+}
+
+.Player-Position-Type{
+    font-size: 2em;
+    font-weight: 700;
+    color: white;
 }
 
 @media screen and (max-width: 620px){

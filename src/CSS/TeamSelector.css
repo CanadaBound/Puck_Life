@@ -1,7 +1,8 @@
 .logo{
     /* clip-path: circle(); */
-    max-height:100px;
-    max-width: 100px;
+    
+    height: 100px;
+    width: 100px;
     opacity: 25%;
 }
 
@@ -20,6 +21,7 @@
 }
 
 .Team-Logo-Container{
+    
     overflow-y: scroll;
     scrollbar-width: none;
     margin-top: 1%;
@@ -51,7 +53,7 @@
     }
 }
 
-@media screen and (max-width: 620px){
+@media screen and (max-width: 730px){
     .Team-Logo-Container{
         display: flex;
         overflow-x: auto;
@@ -67,5 +69,5 @@
         height: 100px;
         width: 100px;
     }
-}
 
+}

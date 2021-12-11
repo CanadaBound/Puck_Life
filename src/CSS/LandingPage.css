@@ -41,7 +41,7 @@
     background: transparent; /* make scrollbar transparent */
 }
 
-@media screen and (max-width: 620px){
+@media screen and (max-width: 730px){
     .Landing-Page-Container{
         height: min-content;
     }

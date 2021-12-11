@@ -2,10 +2,12 @@ import { useEffect, useState, useRef } from "react";
 import '../CSS/LeaderStats.css';
 import teamDetail from "../Assets/teamDetail";
 import axios from "axios";
-import { FaThermometerThreeQuarters } from "react-icons/fa";
+import {useNavigate} from 'react-router-dom';
+
 
 function LeaderStats({playerPos, teams, statSelect}){
 const isInitialMount = useRef(true);
+const navigate = useNavigate();
 
 var [listOfStats, setListOfStats] = useState([]);
 var [selectedPlayer, setSelectedPlayer] = useState({TeamID: '0', TeamName: 'Test Team', ID: '12345', Name: 'Bobby Bobson', First: 'Bobby', Last: 'Bobson', JerseyNo: '99', PositionCode: 'C', Points: '0', Goals: '0', Assists: '0'});
@@ -297,7 +299,7 @@ if(playerPos !== 1){
         <div className = 'Jersey-Number-Container'>
           <p className = 'Jersey-Number'> #{selectedPlayer.JerseyNo}</p>
         </div>
-        <div className = 'Player-Name-Container'>
+        <div className = 'Player-Name-Container' onClick = {() => navigate(`/Player/${selectedPlayer.ID}`)}>
           <span>{selectedPlayer.First}</span>
           <span>{selectedPlayer.Last}</span>
         </div>
@@ -334,10 +336,12 @@ if(playerPos !== 1){
       {triggerStats && statSelect === 1? listOfStats.sort((a,b) => b.Points - a.Points ).slice(0,10).map((d, index)=>{
   
         return <li tabIndex = {0} ref = {liRef} onKeyDown = {(e)=>hoverOverPlayer(e)} onClick = {(e)=>hoverOverPlayer(e)} onMouseEnter={(e)=>hoverOverPlayer(e)} className = {index===0 && isDesktop?ActiveClass:InactiveClass} id = {d.ID} key = {d.ID}>
-          
+          <div className = 'Player-Stats-Row-Name-Div'>
           <span className = 'Name'>{d.First}</span>
           <span className = 'Name'>{d.Last}</span>
+          </div>
           <span className = 'Stat'>{d.Points}</span>
+
         </li>
         
         
@@ -346,16 +350,20 @@ if(playerPos !== 1){
       {triggerStats && statSelect === 2? listOfStats.sort((a,b) => b.Goals - a.Goals ).slice(0,10).map((d, index)=>{
         
         return <li tabIndex = {0} ref = {liRef} onKeyDown = {(e)=>hoverOverPlayer(e)} onMouseEnter={(e)=>hoverOverPlayer(e)} onClick =  {(e)=>hoverOverPlayer(e)} className = {index===0 && isDesktop?ActiveClass:InactiveClass} id = {d.ID} key = {d.ID}>
+          <div className = 'Player-Stats-Row-Name-Div'>
           <span className = 'Name'>{d.First}</span>
           <span className = 'Name'>{d.Last}</span>
+          </div>
           <span className = 'Stat'>{d.Goals}</span>
         </li>}
       ) : null}
       {triggerStats && statSelect === 3? listOfStats.sort((a,b) => b.Assists - a.Assists ).slice(0,10).map((d, index)=>{
         
         return <li tabIndex = {0} ref = {liRef} onKeyDown = {(e)=>hoverOverPlayer(e)} onMouseEnter={(e)=>hoverOverPlayer(e)} onClick =  {(e)=>hoverOverPlayer(e)} className = {index===0 && isDesktop?ActiveClass:InactiveClass} id = {d.ID} key = {d.ID}>
+          <div className = 'Player-Stats-Row-Name-Div'>
           <span className = 'Name'>{d.First}</span>
           <span className = 'Name'>{d.Last}</span>
+          </div>
           <span className = 'Stat'>{d.Assists}</span>
         </li>}
       ) : null}
@@ -378,7 +386,7 @@ if(playerPos !== 1){
             <div className = 'Jersey-Number-Container'>
               <p className = 'Jersey-Number'> #{selectedGoalie.JerseyNo}</p>
             </div>
-            <div className = 'Player-Name-Container'>
+            <div className = 'Player-Name-Container' onClick = {() => navigate('/Player')}>
               <span>{selectedGoalie.First}</span>
               <span>{selectedGoalie.Last}</span>
             </div>
@@ -415,24 +423,33 @@ if(playerPos !== 1){
           {triggerStats && statSelect === 1? listOfStats.sort((a,b) => a.GAA - b.GAA ).slice(0,10).map((d, index)=>{
             
             return <li tabIndex = {0} ref = {liRef} onKeyDown = {(e)=>hoverOverPlayer(e)} onMouseEnter={(e)=>hoverOverPlayer(e)} onClick =  {(e)=>hoverOverPlayer(e)} className = {index===0 && isDesktop?ActiveClass:InactiveClass} id = {d.ID} key = {d.ID}>
-              <span className = 'Name'>{d.First}</span>
-              <span className = 'Name'>{d.Last}</span>
+              
+              <div className = 'Player-Stats-Row-Name-Div'>
+          <span className = 'Name'>{d.First}</span>
+          <span className = 'Name'>{d.Last}</span>
+          </div>
+              
+              
               <span className = 'Stat'>{parseInt(d.GAA).toFixed(2)}</span>
             </li>}
           ) : null}
           {triggerStats && statSelect === 2? listOfStats.sort((a,b) => b.SavePercentage - a.SavePercentage ).slice(0,10).map((d, index)=>{
             
             return <li tabIndex = {0} ref = {liRef} onKeyDown = {(e)=>hoverOverPlayer(e)} onMouseEnter={(e)=>hoverOverPlayer(e)} onClick =  {(e)=>hoverOverPlayer(e)} className = {index===0 && isDesktop?ActiveClass:InactiveClass} id = {d.ID} key = {d.ID}>
-              <span className = 'Name'>{d.First}</span>
-              <span className = 'Name'>{d.Last}</span>
+              <div className = 'Player-Stats-Row-Name-Div'>
+          <span className = 'Name'>{d.First}</span>
+          <span className = 'Name'>{d.Last}</span>
+          </div>
               <span className = 'Stat'>{d.SavePercentage}</span>
             </li>}
           ) : null}
           {triggerStats && statSelect === 3? listOfStats.sort((a,b) => b.Shutouts - a.Shutouts ).slice(0,10).map((d, index)=>{
             
             return <li tabIndex = {0} ref = {liRef} onKeyDown = {(e)=>hoverOverPlayer(e)} onMouseEnter={(e)=>hoverOverPlayer(e)} onClick =  {(e)=>hoverOverPlayer(e)} className = {index===0 && isDesktop?ActiveClass:InactiveClass} id = {d.ID} key = {d.ID}>
-              <span className = 'Name'>{d.First}</span>
-              <span className = 'Name'>{d.Last}</span>
+              <div className = 'Player-Stats-Row-Name-Div'>
+          <span className = 'Name'>{d.First}</span>
+          <span className = 'Name'>{d.Last}</span>
+          </div>
               <span className = 'Stat'>{d.Shutouts}</span>
             </li>}
           ) : null}

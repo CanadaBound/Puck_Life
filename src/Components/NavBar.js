@@ -7,7 +7,7 @@ function NavBar(){
     return(
         <div className = 'NavBar-Container'>
             <div className = 'Logo'>
-                <h1 className = 'H2-Logo'>Hockey Stats</h1>
+                <h1 className = 'H2-Logo'>Puck Life</h1>
             </div>
             <div className = 'NavBar-Links'>
                 <div classname = 'Filter-Icon'>

@@ -1,0 +1,165 @@
+.Career-Stats{
+    width: fit-content;
+    height: 400px;
+    overflow-x: auto;
+    overscroll-behavior-y: none;
+    margin: 2% 0.5% 2% 0.5%;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;  /* IE 10+ */
+}
+
+.Career-Stats::-webkit-scrollbar{
+    background: transparent; /* Chrome/Safari/Webkit */
+    width: 0px;
+}
+.Career-Table-Header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: #1A1B1C;
+    width: max-content;
+    box-shadow: 0px 5px 15px -3px rgba(33,34,36,1);
+    -webkit-box-shadow: 0px 5px 15px -3px rgba(33,34,36,1);
+    -moz-box-shadow: 0px 5px 15px -3px rgba(33,34,36,1);
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0
+}
+
+.Career-Table-Header-Span{
+    color: white;
+    font-size: 1.25em;
+    font-weight: 700;
+    text-align: left;
+}
+
+.Career-Table-Header-Span-Div{
+    height: 70px;
+    width: 100px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.Career-Table-Team-Header-Span-Div{
+    height: 70px;
+    width: 170px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.Career-Table-Season-Row{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: #212224;
+    width: max-content;
+}
+
+.Career-Table-Season-Row-Highlight-Span{
+    color: white;
+    font-size: 1em;
+    font-weight: 700;
+    text-align: center;
+    
+}
+
+.Career-Table-Season-Row-Highlight-Div{
+    height: 70px;
+    width: 100px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: #242526;
+}
+
+.Career-Table-Season-Row-Highlight-Team-Div{
+    height: 70px;
+    width: 170px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: #212224;
+    border-bottom: 1px solid grey;
+}
+
+.Career-Table-Season-Row-Span{
+    color: white;
+    font-size: 1em;
+    font-weight: 700;
+    text-align: left;
+}
+
+.Career-Table-Season-Row-Span-Div{
+    height: 70px;
+    width: 100px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid grey;
+    
+}
+
+.Career-Table-Row{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: #1A1B1C;
+    width: max-content;
+    position: -webkit-sticky;
+    position: sticky;
+    bottom: 0
+}
+
+.Career-Table-Row-Highlight-Span{
+    color: white;
+    font-size: 1em;
+    font-weight: 700;
+    text-align: left;
+}
+
+.Career-Table-Row-Highlight-Div{
+    height: 70px;
+    width: 100px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: #1A1B1C;
+    
+}
+
+.Career-Table-Row-Highlight-Divider-Div{
+    height: 70px;
+    width: 170px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: #1A1B1C;
+}
+
+.Career-Table-Row-Span{
+    color: white;
+    font-size: 1em;
+    font-weight: 700;
+    text-align: left;
+}
+
+.Career-Table-Row-Span-Div{
+    height: 70px;
+    width: 100px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}

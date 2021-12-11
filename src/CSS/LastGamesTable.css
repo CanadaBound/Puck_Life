@@ -1,0 +1,111 @@
+.Last-Games-Stats{
+    width: 98%;
+    height: fit-content;
+    margin-right: 2.5%;
+    margin-left: 2%;
+    
+}
+
+.Last-Games-Table-Header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: #1A1B1C;
+    width: max-content;
+    box-shadow: 0px 5px 15px -3px rgba(33,34,36,1);
+    -webkit-box-shadow: 0px 5px 15px -3px rgba(33,34,36,1);
+    -moz-box-shadow: 0px 5px 15px -3px rgba(33,34,36,1);
+}
+.Last-Games-Table-Header-Span{
+    color: white;
+    font-size: 1.25em;
+    font-weight: 700;
+    text-align: left;
+}
+
+.Last-Games-Table-Header-Span-Div{
+    height: 50px;
+    width: 70px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.Last-Games-Table-Team-Header-Span-Div{
+    height: 50px;
+    width: 200px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.Last-Games-Table-Row{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: #2a2b2d;
+    width: max-content;
+    border-bottom: 1px solid grey;
+}
+
+.Last-Games-Table-Row-Highlight-Span{
+    color: white;
+    font-size: 1em;
+    font-weight: 700;
+    text-align: left;
+    
+}
+
+.Last-Games-Table-Row-Highlight-Div{
+    height: 50px;
+    width: 70px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: #2a2b2d;
+}
+
+.Last-Games-Table-Row-Highlight-Team-Div{
+    height: 50px;
+    width: 200px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: #2a2b2d;
+}
+
+.Last-Games-Table-Row-Span{
+    color: white;
+    font-size: 1em;
+    font-weight: 700;
+    text-align: left;
+}
+
+.Last-Games-Table-Row-Span-Div{
+    height: 50px;
+    width: 70px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.Last-Games-Stats::-webkit-scrollbar {
+    background: transparent; /* Chrome/Safari/Webkit */
+    width: 0px;
+  }
+
+@media screen and (max-width: 1100px){
+    .Last-Games-Stats{
+        margin-right: 0.5%;
+        margin-left: 0.5%;
+    }
+}

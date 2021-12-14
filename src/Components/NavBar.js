@@ -10,7 +10,7 @@ function NavBar(){
                 <h1 className = 'H2-Logo'>Puck Life</h1>
             </div>
             <div className = 'NavBar-Links'>
-                <div classname = 'Filter-Icon'>
+                <div className = 'Filter-Icon'>
                     <FaSearch aria-label = "Click here to search for teams" size = {24} color = 'white'/>
                 </div>
             </div>

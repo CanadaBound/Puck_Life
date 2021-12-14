@@ -1,13 +1,8 @@
 import '../CSS/TeamStandings.css';
 
 import { useState, useEffect } from "react";
+import { GetTeamStandings } from './APIInteractionFunctions';
 
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import TableContainer from '@mui/material/TableContainer';
 
 function TeamStandings(){
 
@@ -18,16 +13,14 @@ function TeamStandings(){
     var [cssMetropolitan, setCSSMetropolitan] = useState('Metropolitan-Active');
     var [cssPacific, setCSSPacific] = useState('Pacific');
 
+    //Loads the standings data for the current selected division. (0 = Metropolitan, 1 = Atlantic, 2 = Central, 3 = Pacific)
     useEffect(()=>{
-        const axios = require('axios');
-        axios.get('https://statsapi.web.nhl.com/api/v1/standings').then(res => {
-        
-        setDivisionArr(res.data.records[divisionNo].teamRecords);
-        
-      
-      });
+        GetTeamStandings().then(res=>{
+            setDivisionArr(res.data.records[divisionNo].teamRecords);
+        })
     }, [divisionNo]); 
 
+    //When the division number selected changes we set that specific division to active and deactivate the rest.
     useEffect(()=>{
         switch(divisionNo){
             case 0:

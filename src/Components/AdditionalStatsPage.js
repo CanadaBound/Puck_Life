@@ -15,13 +15,17 @@ function AdditionalStatsPage(){
     var [thumbnail, setThumbnail] = useState('');
     var [otherTitles, setOtherTitles] = useState('');
     var [isDataLoaded, setIsDataLoaded] = useState(false);
+    //This is the id passed in via URL.
     let { id } = useParams();
     
+    //After being redirected to this component with the selected player id we load the initial standard player data (name, team, position, jerseyNo)
     useEffect(()=>{
         GetPlayerData(id).then(res => setBasicPlayerData(res.data.people[0]));
         
     },[id])
 
+    //Once the data is set and it's not empty we allow the html elements to render, we run a script to get the player photo 
+    //that we will display on the page and we also run a small script to show whether the player is a captain, rookie or alternate captain.
     useEffect(()=>{
         if(Object.keys(basicPlayerData).length !== 0){
             setIsDataLoaded(true);
@@ -33,17 +37,24 @@ function AdditionalStatsPage(){
             
     }, [basicPlayerData])
 
+    //Once we've gotten the promise from the GetPlayerPhotos function we then decide what picture to load. We ideally want 
+    //to load a thumbnail image but not every player will have one. Second option is a cutout image and if neither of them are available
+    //or there isn't a record for a player we just add a placeholder.
     useEffect(()=>{
-        console.log(playerPhotos);
+       
         if(playerPhotos!==null && playerPhotos[0] !== null && playerPhotos.length !== 0){
-            console.log(playerPhotos);
+           
             if(playerPhotos[0].strThumb !== null){
              
                 setThumbnail(playerPhotos[0].strThumb);
-              }else{
-             
+
+            }else if(playerPhotos[0].strCutout){
+
+                setThumbnail(playerPhotos[0].strCutout);
+
+            }else{
                 setThumbnail('https://via.placeholder.com/250');
-              }
+            }		
         }else{
             setThumbnail('https://via.placeholder.com/250');
         }
@@ -95,7 +106,7 @@ function AdditionalStatsPage(){
                            <span>{basicPlayerData.shootsCatches}</span> 
                         </div>   
                     </div>
-                   <CareerStatsTable playerID = {basicPlayerData.id} teamID = {basicPlayerData.currentTeam.id}/>
+                   <CareerStatsTable playerID = {basicPlayerData.id}/>
                     
                 </div>
                 <div className = 'Lower-Container'>

@@ -1,6 +1,7 @@
 import { useState } from 'react';
+
 import '../CSS/LandingPage.css';
-import Instruction from './Instruction';
+
 import LeagueLeaders from './LeagueLeaders';
 import NavBar from './NavBar';
 import TeamSelector from './TeamSelector';

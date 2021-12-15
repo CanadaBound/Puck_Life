@@ -8,11 +8,13 @@
 }
 
 .Stats {
-    color: white;
+    color: var(--text-color);
+    opacity: var(--text-opacity);
 }
 
 .Player-Stats-Row{
-    color:white;
+    color:var(--text-color);
+    opacity: var(--text-opacity);
     font-size: clamp(0.75rem, 0.5000rem + 1.2500vw, 4.5rem);
     
 }
@@ -43,7 +45,8 @@
 
 
 .Player-Stats-Row-Active{
-    color:white;
+    color:var(--text-color);
+    opacity: var(--text-opacity);
     font-weight: 700;
     font-size: clamp(0.75rem, 0.5000rem + 1.2500vw, 4.5rem);
     
@@ -115,7 +118,8 @@
 .Jersey-Number{
     margin: 0;
     font-size: clamp(2rem, 1.7333rem + 1.3333vw, 6rem);
-    color: white;
+    color: var(--text-color);
+    opacity: var(--text-opacity);
     float: right;
 }
 
@@ -134,8 +138,9 @@
     padding-left: 2.5%;
     justify-content: center;
     font-size: clamp(1rem, 0.8000rem + 1.0000vw, 4rem);
-    color: white;
-    border-left: 1px solid grey;
+    color: var(--text-color);
+    opacity: var(--text-opacity);
+    border-left: 1px solid var(--separator-color);
     cursor: pointer;
 }
 
@@ -149,13 +154,14 @@
     padding-left: 2.5%;
     width: min-content;
     height: min-content;
-    border-left: 1px solid grey;
+    border-left: 1px solid var(--separator-color);
 }
 
 .Team-Name{
     margin: 0;
     font-size: clamp(0.75rem, 0.6000rem + 0.7500vw, 3rem);
-    color: white;
+    color: var(--text-color);
+    opacity: var(--text-opacity);
     float: right;
     
 }
@@ -163,7 +169,8 @@
 .Position{
     margin: 0;
     font-size: clamp(0.75rem, 0.6000rem + 0.7500vw, 3rem);
-    color: white;
+    color: var(--text-color);
+    opacity: var(--text-opacity);
     float: left;
 }
 
@@ -178,14 +185,15 @@
 
 .Stat-Type{
     font-size: clamp(0.75rem, 0.6000rem + 0.7500vw, 3rem);
-    color: white;
-    
+    color: var(--text-color);
+    opacity: var(--text-opacity);
 }
 
 .Stat-Value{
     font-size: clamp(2rem, 1.7333rem + 1.3333vw, 6rem);
-    color: white;
+    color: var(--text-color);
     font-weight: 800;
+    opacity: var(--text-opacity);
 }
 
 @media screen and (max-width: 1000px){

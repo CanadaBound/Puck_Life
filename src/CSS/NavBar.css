@@ -4,13 +4,12 @@
     align-items: center;
     width: 100%;
     height: min-content;
-    background-color: #242526;
+    background-color: var(--accent-color);;
 }
 
 .Logo{
     width: 50%;
     height: 100%;
-    background-color: #242526;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -22,28 +21,28 @@
     display: flex;
     justify-content:flex-end;
     align-items: center;
-    background-color: #242526;
     padding-right: 5%;
 
 }
 
 .H2-Logo{
     margin-left: 5% ;
-    color:white;
+    color:var(--text-color);
+    opacity: var(--text-opacity);
 }
 
-.NHL-Icon, .LIIGA-Icon, .SHL-Icon{
-    height: 100%;
-    width: 200px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+
+.Sunny-Icon, .Moon-Icon{
+    cursor: pointer;
 }
 
-.H2-NHL, .H2-LIIGA, .H2-SHL{
-    margin: 50%;
-    color: white;
+
+
+.Sunny-Icon :hover{
+ color: #FDB813;
+}
+.Moon-Icon :hover{
+    color: #351AF2;
 }
 
 @media screen and (max-width: 440px){

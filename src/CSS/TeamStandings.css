@@ -5,12 +5,13 @@
     justify-content: flex-start;
     align-items: stretch;
     height: min-content;
-    background-color:#242526;
+    background-color: var(--accent-color);
 }
 
 .Team-Standings-Title{
     height: 10%;
-    border-bottom: 1px solid white;
+    border-bottom: 1px solid var(--separator-color);
+    opacity: var(--text-opacity);
 }
 
 .Division-Container{
@@ -18,7 +19,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    border-bottom: 1px solid white;
+    border-bottom: 1px solid var(--separator-color);
 }
 
 .Division-Container:focus-within{
@@ -30,9 +31,10 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    color: white;
+    color: var(--text-color);
+    opacity: var(--text-opacity);
     font-size: large;
-    border-bottom: 1px solid white;
+    border-bottom: 1px solid var(--separator-color);
     margin-top: 2%;
     margin-bottom: 1%;
     overflow-x: auto;
@@ -103,11 +105,13 @@
 }
 
 .H1-TeamStandings{
-    color: white;
+    color: var(--text-color);
+    opacity: var(--text-opacity);
 }
 
 .Atlantic, .Metropolitan, .Central, .Pacific{
-    color: white;
+    color: var(--text-color);
+    opacity: var(--text-opacity);
     cursor: pointer;
 }
 
@@ -173,8 +177,9 @@ table{
 .Legend-Title{
     width: 100%;
     height: 20%;
-    color: white;
-    border-bottom: 1px solid white;
+    color: var(--text-color);
+    border-bottom: 1px solid var(--separator-color);
+    opacity: var(--text-opacity);
     padding-bottom: 1%;
 }
 .Legend-Title h4{
@@ -210,7 +215,8 @@ table{
 
 .Legend-Acronym p, .Legend-Acronym-Description p{
     margin: 0%;
-    color: white;
+    color: var(--text-color);
+    opacity: var(--text-opacity);
     font-size: 12px;
     float: left;
 }

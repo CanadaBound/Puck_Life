@@ -6,7 +6,7 @@ import '../CSS/LeagueLeaders.css';
 import Instruction from './Instruction';
 import LeaderStats from './LeaderStats.js';
 
-function LeagueLeaders({showStats, getListTeams}){
+function LeagueLeaders({showStats, getListTeams, theme}){
 
 	var title = ['Skaters', 'Goalies', 'Defencemen'];
 	var goalieOptions = ['GAA', 'SV%', 'SHUTOUTS'];
@@ -18,7 +18,8 @@ function LeagueLeaders({showStats, getListTeams}){
 	var [cssClass1, setCSSClass1] = useState('Stat-Select-1');
 	var [cssClass2, setCSSClass2] = useState('Stat-Select-2');
 	var [cssClass3, setCSSClass3] = useState('Stat-Select-3');
-	
+	var [iconColor, setIconColor] = useState('white');
+  
 	const Stats1Ref = useRef();
 	const Stats2Ref = useRef();
 	const Stats3Ref = useRef();
@@ -48,6 +49,11 @@ function LeagueLeaders({showStats, getListTeams}){
 		}
 		
 	}
+  
+  useEffect(()=>{
+        theme === 'dark'? setIconColor('dark') : setIconColor('white');
+    }, [theme]);
+  
 	//This useEffect sets the stats to fully inactive if the team list is zero and otherwise when the team list is updated it sets the selected
 	//stat as the first stat.
 	 useEffect(()=>{
@@ -78,6 +84,7 @@ function LeagueLeaders({showStats, getListTeams}){
 		}
 	   
 	}
+
 
    
 	//When a user chooses the stat they want we find out if it's class 1, 2 or 3 and then run the switching function depending on which
@@ -129,36 +136,38 @@ function LeagueLeaders({showStats, getListTeams}){
 		
 	}
 
-	return(
-		<div className = 'Leaders-Container'>
-			<div tabIndex = {0} className = 'Leaders-Title'>
-				
-				   <FaChevronLeft tabIndex = {0} id = '-' aria-label = 'Select position before current one' className = 'toggleArrowLeft' size = {36} color = 'white' onClick={() => selectPosition('-')} onKeyDown ={(e)=>handleArrowKey(e)}/> 
-			  
-				
-				<span aria-label = 'Currently selected position' className = 'Player-Position-Type'>{title[titleNo]}</span>
-				
-				   <FaChevronRight tabIndex = {0} id = '+' aria-label = 'Select position after current one' className = 'toggleArrowRight' size = {36} color = 'white' onClick={() => selectPosition('+')} onKeyDown ={(e)=>handleArrowKey(e)}/> 
-				
-				
-			</div>
-			<div tabIndex = {0} className = 'Leaders-Selection-Container'>
-				<div className = {cssClass1} >
-					<p tabIndex = {0} aria-label = 'Click to show points stat or goals against average if goalie' ref = {Stats1Ref} onKeyDown ={(e)=>handleEnter(e)} onClick = {(e)=> handleStatChange(e)}>{titleNo === 1 ? goalieOptions[0]: nonGoalieOptions[0]}</p>
-				</div>
-				<div className = {cssClass2} >
-					<p tabIndex = {0} aria-label = 'Click to show goals stat or save percentage if goalie' ref = {Stats2Ref} onKeyDown ={(e)=>handleEnter(e)} onClick = {(e)=> handleStatChange(e)}>{titleNo === 1 ? goalieOptions[1]: nonGoalieOptions[1]}</p>
-				</div>
-				<div className = {cssClass3}>
-					<p tabIndex = {0} aria-label = 'Click to show assists stat or shutouts if goalie' ref = {Stats3Ref} onKeyDown ={(e)=>handleEnter(e)} onClick = {(e)=> handleStatChange(e)}>{titleNo === 1 ? goalieOptions[2]: nonGoalieOptions[2]}</p>
-				</div>
-			</div>
-			<div className = 'Leaders-Stats-Container'>
-				{showStats ? <LeaderStats playerPos = {titleNo} teams = {getListTeams} statSelect = {statSelect}/> : <Instruction/>}
-			</div>
-			
-		</div>
-	);
+
+    return(
+        <div className = 'Leaders-Container'>
+            <div tabIndex = {0} className = 'Leaders-Title'>
+                
+                   <FaChevronLeft tabIndex = {0} id = '-' aria-label = 'Select position before current one' className = 'toggleArrowLeft' size = {36} color = {iconColor} onClick={() => selectPosition('-')} onKeyDown ={(e)=>handleArrowKey(e)}/> 
+              
+                
+                <span aria-label = 'Currently selected position' className = 'Player-Position-Type'>{title[titleNo]}</span>
+                
+                   <FaChevronRight tabIndex = {0} id = '+' aria-label = 'Select position after current one' className = 'toggleArrowRight' size = {36} color = {iconColor} onClick={() => selectPosition('+')} onKeyDown ={(e)=>handleArrowKey(e)}/> 
+                
+                
+            </div>
+            <div tabIndex = {0} className = 'Leaders-Selection-Container'>
+                <div className = {cssClass1} >
+                    <p tabIndex = {0} aria-label = 'Click to show points stat or goals against average if goalie' ref = {Stats1Ref} onKeyDown ={(e)=>handleEnter(e)} onClick = {(e)=> handleStatChange(e)}>{titleNo == 1 ? goalieOptions[0]: nonGoalieOptions[0]}</p>
+                </div>
+                <div className = {cssClass2} >
+                    <p tabIndex = {0} aria-label = 'Click to show goals stat or save percentage if goalie' ref = {Stats2Ref} onKeyDown ={(e)=>handleEnter(e)} onClick = {(e)=> handleStatChange(e)}>{titleNo == 1 ? goalieOptions[1]: nonGoalieOptions[1]}</p>
+                </div>
+                <div className = {cssClass3}>
+                    <p tabIndex = {0} aria-label = 'Click to show assists stat or shutouts if goalie' ref = {Stats3Ref} onKeyDown ={(e)=>handleEnter(e)} onClick = {(e)=> handleStatChange(e)}>{titleNo == 1 ? goalieOptions[2]: nonGoalieOptions[2]}</p>
+                </div>
+            </div>
+            <div className = 'Leaders-Stats-Container'>
+                {showStats ? <LeaderStats playerPos = {titleNo} teams = {getListTeams} statSelect = {statSelect}/> : <Instruction/>}
+            </div>
+            
+        </div>
+    );
+
 }
 
 export default LeagueLeaders;

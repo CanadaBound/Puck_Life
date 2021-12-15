@@ -17,3 +17,28 @@ code {
   height: 100%;
   width: 100%;
 }
+
+:root{
+  --text-color: black;
+  --background-colour:#dae0e6;
+  --accent-color: #f8f8ff;
+  --separator-color: black;
+  --instruction-color: black;
+  --table-accent: #dae0e6;
+  --table-highlight: #E9ECF3;
+  --table-main: #f8f8ff;
+  --text-opacity: 100%;
+}
+
+[data-theme="dark"] {
+  --text-color: white;
+  --background-colour: #18191A;
+  --accent-color: #242526;
+  --separator-color: grey;
+  --instruction-color: #9a9c9a;
+  --table-accent: #1A1B1C ;
+  --table-highlight: #1E1F20;
+  --table-main: #212224;
+  --text-opacity: 87%;
+}
+

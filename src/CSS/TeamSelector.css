@@ -29,9 +29,9 @@
     height: min-content;
 }
 
-.Team-Logo-Container:focus-within{
+/* .Team-Logo-Container:focus-within{
     border: 1px solid grey;
-}
+} */
 
 ::-webkit-scrollbar {
     width: 0px;

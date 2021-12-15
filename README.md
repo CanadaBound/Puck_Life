@@ -8,10 +8,10 @@ An NHL statistics website offering up the most important information about each 
 <img alt="React Router" src="https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white" />
 
 ## **Features**
--Pleasant and easy to use UI.
--In-depth data and analytics, with heavy data manipulation from the NHL API
--Full accessibility, including high color contrasts, screen reader friendly labels and keyboard navigation.
--Dark and Light modes, your choices are saved in local storage.
--Routing with parameters.
+- Pleasant and easy to use UI.
+- In-depth data and analytics, with heavy data manipulation from the NHL API
+- Full accessibility, including high color contrasts, screen reader friendly labels and keyboard navigation.
+- Dark and Light modes, your choices are saved in local storage.
+- Routing with parameters.
 
 ## **GIFs**

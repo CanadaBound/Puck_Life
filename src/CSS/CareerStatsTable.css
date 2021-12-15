@@ -17,7 +17,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
-    background-color: #1A1B1C;
+    background-color: var(--table-accent);
     width: max-content;
     box-shadow: 0px 5px 15px -3px rgba(33,34,36,1);
     -webkit-box-shadow: 0px 5px 15px -3px rgba(33,34,36,1);
@@ -28,11 +28,12 @@
 }
 
 .Career-Table-Header-Span{
-    color: white;
+    color: var(--text-color);
     font-size: 1.25em;
     font-weight: 700;
     text-align: left;
-}
+    /* opacity: var(--text-opacity);*/
+} 
 
 .Career-Table-Header-Span-Div{
     height: 70px;
@@ -57,27 +58,28 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
-    background-color: #212224;
+    background-color: var(--table-main);
     width: max-content;
 }
 
 .Career-Table-Season-Row-Highlight-Span{
-    color: white;
+    color: var(--text-color);
+    /* opacity: var(--text-opacity); */
     font-size: 1em;
     font-weight: 700;
     text-align: center;
     
 }
 
-.Career-Table-Season-Row-Highlight-Div{
+/* .Career-Table-Season-Row-Highlight-Div{
     height: 70px;
     width: 100px;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    background-color: #242526;
-}
+    background-color: var(--table-highlight);
+} */
 
 .Career-Table-Season-Row-Highlight-Team-Div{
     height: 70px;
@@ -86,15 +88,16 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    background-color: #212224;
-    border-bottom: 1px solid grey;
+    background-color: var(--table-highlight);
+    border-bottom: 1px solid var(--separator-color);
 }
 
 .Career-Table-Season-Row-Span{
-    color: white;
+    color: var(--text-color);
     font-size: 1em;
     font-weight: 700;
     text-align: left;
+    /* opacity: var(--text-opacity); */
 }
 
 .Career-Table-Season-Row-Span-Div{
@@ -104,7 +107,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    border-bottom: 1px solid grey;
+    border-bottom: 1px solid var(--separator-color);
     
 }
 
@@ -113,7 +116,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
-    background-color: #1A1B1C;
+    background-color: var(--table-accent);
     width: max-content;
     position: -webkit-sticky;
     position: sticky;
@@ -121,10 +124,11 @@
 }
 
 .Career-Table-Row-Highlight-Span{
-    color: white;
+    color: var(--text-color);
     font-size: 1em;
     font-weight: 700;
     text-align: left;
+    /* opacity: var(--text-opacity); */
 }
 
 .Career-Table-Row-Highlight-Div{
@@ -134,7 +138,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    background-color: #1A1B1C;
+    background-color: var(--table-accent);
     
 }
 
@@ -145,15 +149,16 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    background-color: #1A1B1C;
+    background-color: var(--table-accent);
 }
 
 .Career-Table-Row-Span{
-    color: white;
+    color: var(--text-color);
     font-size: 1em;
     font-weight: 700;
     text-align: left;
-}
+    /* opacity: var(--text-opacity);*/
+} 
 
 .Career-Table-Row-Span-Div{
     height: 70px;

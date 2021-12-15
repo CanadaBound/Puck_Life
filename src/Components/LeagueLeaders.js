@@ -6,7 +6,7 @@ import Instruction from './Instruction';
 
 import LeaderStats from './LeaderStats.js';
 
-function LeagueLeaders({showStats, getListTeams}){
+function LeagueLeaders({showStats, getListTeams, theme}){
 
     var title = ['Skaters', 'Goalies', 'Defencemen'];
     var [titleNo, setTitleNo] = useState(0);
@@ -14,6 +14,7 @@ function LeagueLeaders({showStats, getListTeams}){
     var [cssClass1, setCSSClass1] = useState('Stat-Select-1');
     var [cssClass2, setCSSClass2] = useState('Stat-Select-2');
     var [cssClass3, setCSSClass3] = useState('Stat-Select-3');
+    var [iconColor, setIconColor] = useState('white');
     var goalieOptions = ['GAA', 'SV%', 'SHUTOUTS'];
     var nonGoalieOptions = ['POINTS', 'GOALS', 'ASSISTS'];
     const Stats1Ref = useRef();
@@ -32,6 +33,10 @@ function LeagueLeaders({showStats, getListTeams}){
         }
        
     }
+
+    useEffect(()=>{
+        theme === 'dark'? setIconColor('dark') : setIconColor('white');
+    }, [theme]);
 
     useEffect(()=>{
         if(getListTeams.length === 0){
@@ -106,12 +111,12 @@ function LeagueLeaders({showStats, getListTeams}){
         <div className = 'Leaders-Container'>
             <div tabIndex = {0} className = 'Leaders-Title'>
                 
-                   <FaChevronLeft tabIndex = {0} id = '-' aria-label = 'Select position before current one' className = 'toggleArrowLeft' size = {36} color = 'white' onClick={() => selectPosition('-')} onKeyDown ={(e)=>handleArrowKey(e)}/> 
+                   <FaChevronLeft tabIndex = {0} id = '-' aria-label = 'Select position before current one' className = 'toggleArrowLeft' size = {36} color = {iconColor} onClick={() => selectPosition('-')} onKeyDown ={(e)=>handleArrowKey(e)}/> 
               
                 
                 <span aria-label = 'Currently selected position' className = 'Player-Position-Type'>{title[titleNo]}</span>
                 
-                   <FaChevronRight tabIndex = {0} id = '+' aria-label = 'Select position after current one' className = 'toggleArrowRight' size = {36} color = 'white' onClick={() => selectPosition('+')} onKeyDown ={(e)=>handleArrowKey(e)}/> 
+                   <FaChevronRight tabIndex = {0} id = '+' aria-label = 'Select position after current one' className = 'toggleArrowRight' size = {36} color = {iconColor} onClick={() => selectPosition('+')} onKeyDown ={(e)=>handleArrowKey(e)}/> 
                 
                 
             </div>

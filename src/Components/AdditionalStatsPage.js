@@ -9,7 +9,7 @@ import {GetPlayerData, createOtherTitles, GetPlayerPhotos} from './APIInteractio
 
 import '../CSS/AdditionalStatsPage.css';
 
-function AdditionalStatsPage(){
+function AdditionalStatsPage({theme, setTheme}){
     var [basicPlayerData, setBasicPlayerData] = useState({});
     var [playerPhotos, setPlayerPhotos] = useState([]);
     var [thumbnail, setThumbnail] = useState('');
@@ -51,7 +51,7 @@ function AdditionalStatsPage(){
 
     return(
          <div className = 'Additional-Stats-Page-Container'>
-            <NavBar/>
+            <NavBar theme = {theme} setTheme={setTheme}/>
             {isDataLoaded ? <div className ='Additional-Stats-Container'>
                 <div className = 'Upper-Container'>
                     <div className = 'Photo-Placeholder'>

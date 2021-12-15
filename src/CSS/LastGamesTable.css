@@ -1,5 +1,5 @@
 .Last-Games-Stats{
-    width: 98%;
+    width: fit-content;
     height: fit-content;
     margin-right: 2.5%;
     margin-left: 2%;
@@ -11,17 +11,15 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
-    background-color: #1A1B1C;
+    background-color: var(--table-accent);
     width: max-content;
-    box-shadow: 0px 5px 15px -3px rgba(33,34,36,1);
-    -webkit-box-shadow: 0px 5px 15px -3px rgba(33,34,36,1);
-    -moz-box-shadow: 0px 5px 15px -3px rgba(33,34,36,1);
 }
 .Last-Games-Table-Header-Span{
-    color: white;
+    color: var(--text-color);
     font-size: 1.25em;
     font-weight: 700;
     text-align: left;
+    /* opacity: var(--text-opacity); */
 }
 
 .Last-Games-Table-Header-Span-Div{
@@ -48,16 +46,17 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
-    background-color: #2a2b2d;
+    background-color: var(--table-main);
     width: max-content;
-    border-bottom: 1px solid grey;
+    border-bottom: 1px solid var(--separator-color);
 }
 
 .Last-Games-Table-Row-Highlight-Span{
-    color: white;
+    color: var(--text-color);
     font-size: 1em;
     font-weight: 700;
     text-align: left;
+    /* opacity: var(--text-opacity); */
     
 }
 
@@ -68,7 +67,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    background-color: #2a2b2d;
+    background-color: var(--table-main);
 }
 
 .Last-Games-Table-Row-Highlight-Team-Div{
@@ -78,14 +77,15 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    background-color: #2a2b2d;
+    background-color: var(--table-main);
 }
 
 .Last-Games-Table-Row-Span{
-    color: white;
+    color: var(--text-color);
     font-size: 1em;
     font-weight: 700;
     text-align: left;
+    /* opacity: var(--text-opacity); */
 }
 
 .Last-Games-Table-Row-Span-Div{

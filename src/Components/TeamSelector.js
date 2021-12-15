@@ -19,7 +19,7 @@ function TeamSelector( {toggleStats, setListTeams}) {
         
         setListTeams(selectedTeams);
         
-    }, [selectedTeams])
+    }, [selectedTeams, setListTeams])
     
 
     function handleClick(e){

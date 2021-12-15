@@ -154,13 +154,13 @@ function LeagueLeaders({showStats, getListTeams, theme}){
             </div>
             <div tabIndex = {0} className = 'Leaders-Selection-Container'>
                 <div className = {cssClass1} >
-                    <p tabIndex = {0} aria-label = 'Click to show points stat or goals against average if goalie' ref = {Stats1Ref} onKeyDown ={(e)=>handleEnter(e)} onClick = {(e)=> handleStatChange(e)}>{titleNo == 1 ? goalieOptions[0]: nonGoalieOptions[0]}</p>
+                    <p tabIndex = {0} aria-label = 'Click to show points stat or goals against average if goalie' ref = {Stats1Ref} onKeyDown ={(e)=>handleEnter(e)} onClick = {(e)=> handleStatChange(e)}>{titleNo === 1 ? goalieOptions[0]: nonGoalieOptions[0]}</p>
                 </div>
                 <div className = {cssClass2} >
-                    <p tabIndex = {0} aria-label = 'Click to show goals stat or save percentage if goalie' ref = {Stats2Ref} onKeyDown ={(e)=>handleEnter(e)} onClick = {(e)=> handleStatChange(e)}>{titleNo == 1 ? goalieOptions[1]: nonGoalieOptions[1]}</p>
+                    <p tabIndex = {0} aria-label = 'Click to show goals stat or save percentage if goalie' ref = {Stats2Ref} onKeyDown ={(e)=>handleEnter(e)} onClick = {(e)=> handleStatChange(e)}>{titleNo === 1 ? goalieOptions[1]: nonGoalieOptions[1]}</p>
                 </div>
                 <div className = {cssClass3}>
-                    <p tabIndex = {0} aria-label = 'Click to show assists stat or shutouts if goalie' ref = {Stats3Ref} onKeyDown ={(e)=>handleEnter(e)} onClick = {(e)=> handleStatChange(e)}>{titleNo == 1 ? goalieOptions[2]: nonGoalieOptions[2]}</p>
+                    <p tabIndex = {0} aria-label = 'Click to show assists stat or shutouts if goalie' ref = {Stats3Ref} onKeyDown ={(e)=>handleEnter(e)} onClick = {(e)=> handleStatChange(e)}>{titleNo === 1 ? goalieOptions[2]: nonGoalieOptions[2]}</p>
                 </div>
             </div>
             <div className = 'Leaders-Stats-Container'>

@@ -33,7 +33,7 @@ function NavBar({theme, setTheme}){
             </div>
             <div className = 'NavBar-Links'>
 
-                <div classname = 'Filter-Icon'>
+                <div className = 'Filter-Icon'>
                     {theme === 'dark' ? <IoSunnySharp tabIndex={0} className = 'Sunny-Icon' onKeyDown = {(e)=> handleToggleEnter(e)} onClick={()=> toggleTheme()} aria-label = "Click here to switch theme to light" size = {24} color = 'white'/>: <IoMoonSharp tabIndex={0} className = 'Moon-Icon' onKeyDown = {(e)=> handleToggleEnter(e)} onClick={()=> toggleTheme()} aria-label = "Click here to switch theme to dark" size = {24} color = 'black'/>}
 
                 </div>

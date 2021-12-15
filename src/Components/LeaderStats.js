@@ -74,7 +74,7 @@ function LeaderStats({playerPos, teams, statSelect}){
 	// the 'active' element back to the top player on the list. Then selectedPlayer is set to the current top player.
 	//Trigger stats is set to true to allow the list to render.
 	useEffect(()=>{
-  
+		
   		if(!isInitialMount.current && listOfStats.length !== 0){
 			
 			setSelectedPlayer(SelectCorrectStats([...listOfStats], statSelect, playerPos));
@@ -96,6 +96,7 @@ function LeaderStats({playerPos, teams, statSelect}){
 			isInitialMount.current = false;
  		}else{
   			if(teams.length !== 0){
+				
 				getPlayerIDs(teams);
 				if(listOfStats.length !== 0){
 				
@@ -107,6 +108,7 @@ function LeaderStats({playerPos, teams, statSelect}){
 	
   			}
 		}
+	// eslint-disable-next-line react-hooks/exhaustive-deps
 	},[teams, playerPos])
 
 	//This function queries the API with the selected teamID set when the user clicks on a logo. The resulting roster data is filtered by

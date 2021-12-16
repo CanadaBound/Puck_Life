@@ -15,6 +15,7 @@
     justify-content: center;
     align-items: flex-end;
     margin: 5% 0 0 0;
+    outline: none;
 }
 
 .Leaders-Title h1 {
@@ -37,6 +38,7 @@
     align-items: flex-end;
     flex-grow: 1;
     border-bottom: 1px solid var(--separator-color);
+    outline: none;
     /* padding-bottom: 1.3%; */
 }
 
@@ -58,6 +60,7 @@
 .toggleArrowLeft, .toggleArrowRight {
     color: var(--text-color);
     margin: 0 4% 1% 4%;
+    outline: none;
 }
 
 .toggleArrowLeft :focus-within,.toggleArrowRight :focus-within {
@@ -74,8 +77,14 @@
     font-size: 1.25em;
     font-weight: 600;
     cursor: pointer;
+    outline: none;
 }
-
+.Stat-Select-1-Active p, .Stat-Select-2-Active p, .Stat-Select-3-Active p,.Stat-Select-1 p, .Stat-Select-2 p, .Stat-Select-3 p{
+    outline: none;
+}
+.p{
+    outline: none;
+}
 .Stat-Select-1-Active, .Stat-Select-2-Active, .Stat-Select-3-Active{
     color: #0088df;
     margin: 2.5% 0 0 5%;
@@ -83,6 +92,7 @@
     font-weight: 800;
     cursor: default;
     font-size: 1.25em;
+    outline: none;
 }
 
 .Stat-Select-1:hover, .Stat-Select-2:hover, .Stat-Select-3:hover{
@@ -90,7 +100,7 @@
     font-weight: 800;
     cursor: pointer;
     font-size: 1.25em;
-  
+    outline:none;
 }
 
 .Player-Position-Type{
@@ -98,6 +108,7 @@
     font-weight: 700;
     color: var(--text-color);
     opacity: var(--text-opacity);
+    outline: none;
 }
 
 @media screen and (max-width: 730px){

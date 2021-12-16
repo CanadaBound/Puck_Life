@@ -50,10 +50,11 @@ function TeamSelector( {toggleStats, setListTeams}) {
         }
         
         //This allows the logo to flip from being bright when clicked initially, if it's clicked off it switches back to dark.
-        if(e.target.style.opacity === '1'){
-            e.target.style.opacity = '25%';
+        console.log(e.currentTarget.style.opacity);
+        if(e.currentTarget.style.opacity === '1' || e.currentTarget.style.opacity === '100%'){
+            e.currentTarget.style.opacity = '25%';
         }else {
-            e.target.style.opacity = '100%';
+            e.currentTarget.style.opacity = '100%';
         }
         
     }

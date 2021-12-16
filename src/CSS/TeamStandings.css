@@ -20,6 +20,7 @@
     flex-direction: row;
     justify-content: space-evenly;
     border-bottom: 1px solid var(--separator-color);
+    outline: none;
 }
 
 /* .Division-Container:focus-within{
@@ -33,7 +34,7 @@
     flex-direction: column;
     color: var(--text-color);
     opacity: var(--text-opacity);
-    font-size: large;
+    /* font-size: large; */
     border-bottom: 1px solid var(--separator-color);
     margin-top: 2%;
     margin-bottom: 1%;
@@ -62,6 +63,7 @@
     justify-content: center;
     flex: none;
     margin: 0% 0.5% 1.5% 0.5%;
+    font-size: clamp(0.5rem, 0.3214rem + 0.8929vw, 1.75rem);
 }
 
 .Standings-Data-Team{
@@ -75,7 +77,8 @@
     justify-content: center;
     flex: none;
     height: fit-content;
-    font-size: 0.8em;
+    /* font-size: 0.8em; */
+    font-size: clamp(0.5rem, 0.3214rem + 0.8929vw, 1.75rem);
 }
 .Standings-Data-Title{
     margin: 0% 0.5% 1.5% 0.5%;
@@ -89,6 +92,7 @@
     justify-content: center;
     flex: none;
     font-weight: 700;
+    font-size: clamp(0.5rem, 0.3214rem + 0.8929vw, 1.75rem);
 }
 .Standings-Data-Team-Title{
     margin: 0% 0.5% 1.5% 0.5%;
@@ -102,6 +106,7 @@
     flex: none;
     height: fit-content;
     font-weight: 700;
+    font-size: clamp(0.5rem, 0.3214rem + 0.8929vw, 1.75rem);
 }
 
 .H1-TeamStandings{
@@ -113,29 +118,34 @@
     color: var(--text-color);
     opacity: var(--text-opacity);
     cursor: pointer;
+    outline: none;
 }
 
 .Atlantic-Active{
     color: #01c3d7;
     border-bottom: 5px solid #01c3d7;
     cursor: default;
+    outline: none;
 }
 
 .Metropolitan-Active{
     color: #ff8200;
     border-bottom: 5px solid #ff8200;
     cursor: default;
+    outline: none;
 }
 
 .Central-Active{
     color: #fba5d9;
     border-bottom: 5px solid #fba5d9;
     cursor: default;
+    outline: none;
 }
 .Pacific-Active{
     color: #00cc7a;
     border-bottom: 5px solid #00cc7a;
     cursor: default;
+    outline: none;
 }
 
 .Atlantic :hover{
@@ -220,6 +230,23 @@ table{
     opacity: var(--text-opacity);
     font-size: clamp(0.5rem, 0.4214rem + 0.3929vw, 1.05rem);
     float: left;
+}
+
+@media screen and (max-width: 730px){
+    .Standings-Data{
+        font-size: clamp(0.5rem, 0.1098rem + 1.9512vw, 1rem);
+    }
+    .Standings-Data-Team{
+        
+        font-size: clamp(0.5rem, 0.1098rem + 1.9512vw, 1rem);
+    }
+    .Standings-Data-Title{
+        
+        font-size: clamp(0.5rem, 0.1098rem + 1.9512vw, 1rem);
+    }
+    .Standings-Data-Team-Title{
+        font-size: clamp(0.5rem, 0.1098rem + 1.9512vw, 1rem);
+    }
 }
 
 /* @media screen and (min-width: 1600px){

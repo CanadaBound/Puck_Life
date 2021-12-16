@@ -217,10 +217,9 @@ function LeaderStats({playerPos, teams, statSelect}){
 	  			{triggerStats && statSelect === 1 && playerPos !== 1? listOfStats.sort((a,b) => b.Points - a.Points ).slice(0,10).map((d, index)=>{
   
 				return <li tabIndex = {0} ref = {liRef} onKeyDown = {(e)=>hoverOverPlayer(e)} onClick = {(e)=>hoverOverPlayer(e)} onMouseEnter={(e)=>hoverOverPlayer(e)} className = {InactiveClass} id = {d.ID} key = {d.ID}>
-		  			<div className = 'Player-Stats-Row-Name-Div'>
-		  				<span className = 'Name'>{d.First}</span>
-		  				<span className = 'Name'>{d.Last}</span>
-		 			 </div>
+		  			
+		  			<span className = 'First-Name'>{d.First}</span>
+		  			<span className = 'Last-Name'>{d.Last}</span>
 		  			<span className = 'Stat'>{d.Points}</span> 
 
 				</li>
@@ -230,20 +229,18 @@ function LeaderStats({playerPos, teams, statSelect}){
 	  			{triggerStats && statSelect === 2 && playerPos !== 1? listOfStats.sort((a,b) => b.Goals - a.Goals ).slice(0,10).map((d, index)=>{
 		
 				return <li tabIndex = {0} ref = {liRef} onKeyDown = {(e)=>hoverOverPlayer(e)} onMouseEnter={(e)=>hoverOverPlayer(e)} onClick =  {(e)=>hoverOverPlayer(e)} className = {InactiveClass} id = {d.ID} key = {d.ID}>
-		  			<div className = 'Player-Stats-Row-Name-Div'>
-		  				<span className = 'Name'>{d.First}</span>
-		  				<span className = 'Name'>{d.Last}</span>
-		  			</div>
+		  			
+		  			<span className = 'First-Name'>{d.First}</span>
+		  			<span className = 'Last-Name'>{d.Last}</span>
 		  			<span className = 'Stat'>{d.Goals}</span>
 				</li>
 				}) : null}
 	  			{triggerStats && statSelect === 3 && playerPos !== 1? listOfStats.sort((a,b) => b.Assists - a.Assists ).slice(0,10).map((d, index)=>{
 		
 				return <li tabIndex = {0} ref = {liRef} onKeyDown = {(e)=>hoverOverPlayer(e)} onMouseEnter={(e)=>hoverOverPlayer(e)} onClick =  {(e)=>hoverOverPlayer(e)} className = {InactiveClass} id = {d.ID} key = {d.ID}>
-		  			<div className = 'Player-Stats-Row-Name-Div'>
-		  				<span className = 'Name'>{d.First}</span>
-		  				<span className = 'Name'>{d.Last}</span>
-		  			</div>
+		  			
+		  			<span className = 'First-Name'>{d.First}</span>
+		  			<span className = 'Last-Name'>{d.Last}</span>
 		  			<span className = 'Stat'>{d.Assists}</span>
 				</li>
 				}) : null}
@@ -251,29 +248,26 @@ function LeaderStats({playerPos, teams, statSelect}){
 	  			{triggerStats && statSelect === 1 && playerPos === 1? listOfStats.sort((a,b) => a.GAA - b.GAA ).slice(0,10).map((d, index)=>{
   
   				return <li tabIndex = {0} ref = {liRef} onKeyDown = {(e)=>hoverOverPlayer(e)} onClick = {(e)=>hoverOverPlayer(e)} onMouseEnter={(e)=>hoverOverPlayer(e)} className = {InactiveClass} id = {d.ID} key = {d.ID}>
-					<div className = 'Player-Stats-Row-Name-Div'>
-						<span className = 'Name'>{d.First}</span>
-						<span className = 'Name'>{d.Last}</span>
-					</div>
+					
+					<span className = 'First-Name'>{d.First}</span>
+					<span className = 'Last-Name'>{d.Last}</span>
 					<span className = 'Stat'>{parseInt(d.GAA).toFixed(2)}</span>
 				</li>
   				}): null}
 				{triggerStats && statSelect === 2 && playerPos === 1? listOfStats.sort((a,b) => b.SavePercentage - a.SavePercentage ).slice(0,10).map((d, index)=>{
   
   				return <li tabIndex = {0} ref = {liRef} onKeyDown = {(e)=>hoverOverPlayer(e)} onMouseEnter={(e)=>hoverOverPlayer(e)} onClick =  {(e)=>hoverOverPlayer(e)} className = {InactiveClass} id = {d.ID} key = {d.ID}>
-					<div className = 'Player-Stats-Row-Name-Div'>
-						<span className = 'Name'>{d.First}</span>
-						<span className = 'Name'>{d.Last}</span>
-					</div>
+					
+					<span className = 'First-Name'>{d.First}</span>
+					<span className = 'Last-Name'>{d.Last}</span>
 					<span className = 'Stat'>{d.SavePercentage}</span>
   				</li>}) : null}
 				{triggerStats && statSelect === 3 && playerPos === 1? listOfStats.sort((a,b) => b.Shutouts - a.Shutouts ).slice(0,10).map((d, index)=>{
   
   				return <li tabIndex = {0} ref = {liRef} onKeyDown = {(e)=>hoverOverPlayer(e)} onMouseEnter={(e)=>hoverOverPlayer(e)} onClick =  {(e)=>hoverOverPlayer(e)} className = {InactiveClass} id = {d.ID} key = {d.ID}>
-					<div className = 'Player-Stats-Row-Name-Div'>
-						<span className = 'Name'>{d.First}</span>
-						<span className = 'Name'>{d.Last}</span>
-					</div>
+					
+					<span className = 'First-Name'>{d.First}</span>
+					<span className = 'Last-Name'>{d.Last}</span>
 					<span className = 'Stat'>{d.Shutouts}</span>
   				</li>}) : null}
 			</ul>

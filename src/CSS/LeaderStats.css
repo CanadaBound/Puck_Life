@@ -15,9 +15,17 @@
 .Player-Stats-Row{
     color:var(--text-color);
     opacity: var(--text-opacity);
-    font-size: clamp(0.75rem, 0.5000rem + 1.2500vw, 4.5rem);
-    
+    font-size: clamp(0.5rem, 0.2143rem + 1.4286vw, 2.5rem);
+    outline:none;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
 }
+
+/* .Player-Stats-Row-Name-Div{
+    margin-right: 10%;
+} */
 
 .Player-Stats-Table{
     display: flex;
@@ -31,6 +39,7 @@
 .Player-Stats-Table li {
     list-style-type: none;
     margin: 2.5% 0% 2.5% 0% ;
+ 
 }
 
 .Stat{
@@ -38,18 +47,22 @@
     float:inline-end;
 }
 
-.Name{
+.First-Name{
   float: inline-start;
   margin: 0 1.5% 0 1.5%;
 }
 
+.Last-Name{
+    float: inline-start;
+    margin: 0 5% 0 1.5%;
+  }
 
 .Player-Stats-Row-Active{
     color:var(--text-color);
     opacity: var(--text-opacity);
     font-weight: 700;
-    font-size: clamp(0.75rem, 0.5000rem + 1.2500vw, 4.5rem);
-    
+    font-size: clamp(0.5rem, 0.2143rem + 1.4286vw, 2.5rem);
+    outline:none;
 }
 
 .Individual-Stats-Container{
@@ -117,7 +130,7 @@
 
 .Jersey-Number{
     margin: 0;
-    font-size: clamp(2rem, 1.7333rem + 1.3333vw, 6rem);
+    font-size: clamp(1rem, 0.5714rem + 2.1429vw, 4rem);
     color: var(--text-color);
     opacity: var(--text-opacity);
     float: right;
@@ -137,7 +150,7 @@
     align-items: flex-start;
     padding-left: 2.5%;
     justify-content: center;
-    font-size: clamp(1rem, 0.8000rem + 1.0000vw, 4rem);
+    font-size: clamp(0.5rem, 0.2143rem + 1.4286vw, 2.5rem);
     color: var(--text-color);
     opacity: var(--text-opacity);
     border-left: 1px solid var(--separator-color);
@@ -222,7 +235,12 @@
     .Individual-Stats-Container{
         padding: 0 5% 0 0 ;
     }
-
+    .Player-Stats-Row{
+        font-size: clamp(0.5rem, -0.2805rem + 3.9024vw, 1.5rem);
+    }
+    .Player-Stats-Row-Active{
+        font-size: clamp(0.5rem, -0.2805rem + 3.9024vw, 1.5rem);
+    }
     
 }
 

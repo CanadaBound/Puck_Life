@@ -157,6 +157,10 @@
     cursor: pointer;
 }
 
+.Player-Name-Container span{
+    border-bottom: 1px dotted var(--separator-color);
+}
+
 .Team-Name-Container{
     padding-right: 2.5%;
     width: max-content;
@@ -235,11 +239,14 @@
     .Individual-Stats-Container{
         padding: 0 5% 0 0 ;
     }
-    .Player-Stats-Row{
+    .Individual-Name-Container{
+        margin-left: 10%;
+    }
+    .Player-Stats-Row, .Player-Stats-Row-Active, .Player-Name-Container{
         font-size: clamp(0.5rem, -0.2805rem + 3.9024vw, 1.5rem);
     }
-    .Player-Stats-Row-Active{
-        font-size: clamp(0.5rem, -0.2805rem + 3.9024vw, 1.5rem);
+    .Jersey-Number{
+        font-size: clamp(1rem, -0.4595rem + 6.4865vw, 2.5rem);
     }
     
 }

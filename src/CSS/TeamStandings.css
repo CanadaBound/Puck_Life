@@ -53,8 +53,7 @@
 }
 
 .Standings-Data{
-    /* min-width: 12%;
-    max-width: 12%; */
+
     width: 15%;
     height: fit-content;
     display: flex;
@@ -68,8 +67,6 @@
 
 .Standings-Data-Team{
     margin: 0% 0.5% 1.5% 0.5%;
-    /* max-width: 15%; */
-    /* min-width: 15%; */
     width: 17.5%;
     display: flex;
     flex-direction: row;
@@ -77,13 +74,10 @@
     justify-content: center;
     flex: none;
     height: fit-content;
-    /* font-size: 0.8em; */
     font-size: clamp(0.5rem, 0.3214rem + 0.8929vw, 1.75rem);
 }
 .Standings-Data-Title{
     margin: 0% 0.5% 1.5% 0.5%;
-    /* min-width: 12%;
-    max-width: 12%; */
     width: 15%;
     height: fit-content;
     display: flex;
@@ -96,9 +90,7 @@
 }
 .Standings-Data-Team-Title{
     margin: 0% 0.5% 1.5% 0.5%;
-    /* min-width: 15%;
-    max-width: 15%; */
-    width: 17.5%;;
+    width: 17.5%;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -109,9 +101,14 @@
     font-size: clamp(0.5rem, 0.3214rem + 0.8929vw, 1.75rem);
 }
 
+.Standings-Data-Team-Title p, .Standings-Data-Title p, .Standings-Data-Team p, .Standings-Data p{
+    margin: 0;
+}
+
 .H1-TeamStandings{
     color: var(--text-color);
     opacity: var(--text-opacity);
+    font-size: 2rem;
 }
 
 .Atlantic, .Metropolitan, .Central, .Pacific{
@@ -119,6 +116,8 @@
     opacity: var(--text-opacity);
     cursor: pointer;
     outline: none;
+    background: none;
+    border: 0;
 }
 
 .Atlantic-Active{
@@ -126,6 +125,8 @@
     border-bottom: 5px solid #01c3d7;
     cursor: default;
     outline: none;
+    background: none;
+    border: 0;
 }
 
 .Metropolitan-Active{
@@ -133,6 +134,8 @@
     border-bottom: 5px solid #ff8200;
     cursor: default;
     outline: none;
+    background: none;
+    border: 0;
 }
 
 .Central-Active{
@@ -140,12 +143,16 @@
     border-bottom: 5px solid #fba5d9;
     cursor: default;
     outline: none;
+    background: none;
+    border: 0;
 }
 .Pacific-Active{
     color: #00cc7a;
     border-bottom: 5px solid #00cc7a;
     cursor: default;
     outline: none;
+    background: none;
+    border: 0;
 }
 
 .Atlantic :hover{
@@ -193,7 +200,8 @@ table{
     padding-bottom: 1%;
     font-size: clamp(0.8rem, 0.7286rem + 0.3571vw, 1.3rem);
 }
-.Legend-Title h4{
+
+.Legend-Title h3{
     float: left;
     padding-left: 2%;
     margin: 0%;
@@ -213,7 +221,7 @@ table{
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    
+    margin-bottom: 3%;
 }
 
 .Legend-Acronym p{
@@ -222,6 +230,7 @@ table{
 
 .Legend-Acronym-Description {
     margin-left: 10%;
+    
 }
 
 .Legend-Acronym p, .Legend-Acronym-Description p{
@@ -231,6 +240,8 @@ table{
     font-size: clamp(0.5rem, 0.4214rem + 0.3929vw, 1.05rem);
     float: left;
 }
+
+
 
 @media screen and (max-width: 730px){
     .Standings-Data{

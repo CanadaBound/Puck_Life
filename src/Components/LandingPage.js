@@ -14,22 +14,23 @@ const [listOfTeams, setListOfTeams] = useState([]);
 
 
   return (
-
-    <div className = 'Landing-Page-Container'>
+    <>
+     {/* <div className = 'Landing-Page-Container'></div> */}
         <NavBar theme = {theme} setTheme = {setTheme}/>
-        <div className = 'Stats-Standings-Container'>
-          <div className = 'Team-Select-Container'>
+        <main className = 'Stats-Standings-Container'>
+          <nav className = 'Team-Select-Container'>
             <TeamSelector toggleStats = {setTeamSelected} setListTeams = {setListOfTeams}/>
-          </div>
-            <div className = 'Stats-Container'> 
+          </nav>
+            <article className = 'Stats-Container'> 
                 <LeagueLeaders showStats = {teamSelected} getListTeams = {listOfTeams} theme = {theme}/>
-             </div>
-            <div className = 'Standings-Container'>
+             </article>
+            <article className = 'Standings-Container'>
                 <TeamStandings/>
-            </div>
-        </div>
+            </article>
+        </main>
         
-    </div>
+    </>
+    
     
   );
 }

@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from "react";
-import {useNavigate} from 'react-router-dom';
+import {useNavigate, Link} from 'react-router-dom';
 import axios from "axios";
 
 import '../CSS/LeaderStats.css';
@@ -168,10 +168,10 @@ function LeaderStats({playerPos, teams, statSelect}){
 	}
 
 	return(
-	
-	<div onMouseLeave = {()=> handleMouseLeave()} className = 'Player-Stats'>
+		// onClick = {() => navigate(`/Player/${selectedPlayer.ID}`)}
+	<article onMouseLeave = {()=> handleMouseLeave()} className = 'Player-Stats'>
 		{/* This part displays the photo alongside a few stats when user hovers over a players name */}
-		<div className = 'Individual-Stats-Container' >
+		<section className = 'Individual-Stats-Container' >
 			<div className = 'Individual-Picture-Container' >
 				<img className = 'Picture-Tag' alt = 'Hockey player' src = {playerURL}></img>
 	  		</div>
@@ -179,9 +179,13 @@ function LeaderStats({playerPos, teams, statSelect}){
 				<div className = 'Jersey-Number-Container'>
 		  			<p className = 'Jersey-Number'> #{selectedPlayer.JerseyNo}</p>
 				</div>
-				<div className = 'Player-Name-Container' onClick = {() => navigate(`/Player/${selectedPlayer.ID}`)}>
-					<span>{selectedPlayer.First}</span>
-					<span>{selectedPlayer.Last}</span>
+				<div className = 'Player-Name-Container'>
+					<Link to = {`/Player/${selectedPlayer.ID}`} className = 'Link-Additional-Stats'>
+						<p>{selectedPlayer.First}</p>
+						<p>{selectedPlayer.Last}</p>
+					</Link>
+
+					
 				</div>
 	  		</div>
 	  		<div className = 'Individual-Team-Name-Container'>
@@ -196,31 +200,31 @@ function LeaderStats({playerPos, teams, statSelect}){
 	  		<div className = 'Individual-Value-Container'>
 				{statSelect === 1 && 
 					<div className='Stat-Container'>
-		  				{playerPos !== 1 ?<span className = 'Stat-Type'>Points</span> : <span className = 'Stat-Type'>GAA</span>}
-		  				{playerPos !== 1 ?<span className = 'Stat-Value'>{selectedPlayer.Points}</span> : <span className = 'Stat-Value'>{parseInt(selectedPlayer.GAA).toFixed(2)}</span>}
+		  				{playerPos !== 1 ?<p className = 'Stat-Type'>Points</p> : <p className = 'Stat-Type'>GAA</p>}
+		  				{playerPos !== 1 ?<p className = 'Stat-Value'>{selectedPlayer.Points}</p> : <p className = 'Stat-Value'>{parseInt(selectedPlayer.GAA).toFixed(2)}</p>}
 					</div>}
 				{statSelect === 2 && 
 					<div className='Stat-Container'>
-		  				{playerPos !== 1 ?<span className = 'Stat-Type'>Goals</span> : <span className = 'Stat-Type'>SV%</span>}
-		  				{playerPos !== 1 ?<span className = 'Stat-Value'>{selectedPlayer.Goals}</span> : <span className = 'Stat-Value'>{selectedPlayer.SavePercentage}</span>}
+		  				{playerPos !== 1 ?<p className = 'Stat-Type'>Goals</p> : <p className = 'Stat-Type'>SV%</p>}
+		  				{playerPos !== 1 ?<p className = 'Stat-Value'>{selectedPlayer.Goals}</p> : <p className = 'Stat-Value'>{selectedPlayer.SavePercentage}</p>}
 					</div>}
 				{statSelect === 3 && 
 					<div className='Stat-Container'>
-		  				{playerPos !== 1 ?<span className = 'Stat-Type'>Assists</span> : <span className = 'Stat-Type'>Shutouts</span>}
-		  				{playerPos !== 1 ?<span className = 'Stat-Value'>{selectedPlayer.Assists}</span> : <span className = 'Stat-Value'>{selectedPlayer.Shutouts}</span>}
+		  				{playerPos !== 1 ?<p className = 'Stat-Type'>Assists</p> : <p className = 'Stat-Type'>Shutouts</p>}
+		  				{playerPos !== 1 ?<p className = 'Stat-Value'>{selectedPlayer.Assists}</p> : <p className = 'Stat-Value'>{selectedPlayer.Shutouts}</p>}
 					</div>}
 	  		</div>
-		</div>
-		<div className = 'Total-Stats-Container'>
+		</section>
+		<section className = 'Total-Stats-Container'>
 	  		<ul ref = {ulRef} className = 'Player-Stats-Table'>
 				{/* The 3 .maps below will run at different times depending on which stat is selected. These 3 are specifically for non-goalie positions */}
 	  			{triggerStats && statSelect === 1 && playerPos !== 1? listOfStats.sort((a,b) => b.Points - a.Points ).slice(0,10).map((d, index)=>{
   
 				return <li tabIndex = {0} ref = {liRef} onKeyDown = {(e)=>hoverOverPlayer(e)} onClick = {(e)=>hoverOverPlayer(e)} onMouseEnter={(e)=>hoverOverPlayer(e)} className = {InactiveClass} id = {d.ID} key = {d.ID}>
 		  			
-		  			<span className = 'First-Name'>{d.First}</span>
-		  			<span className = 'Last-Name'>{d.Last}</span>
-		  			<span className = 'Stat'>{d.Points}</span> 
+		  			<p className = 'First-Name'>{d.First}</p>
+		  			<p className = 'Last-Name'>{d.Last}</p>
+		  			<p className = 'Stat'>{d.Points}</p> 
 
 				</li>
 		
@@ -230,18 +234,18 @@ function LeaderStats({playerPos, teams, statSelect}){
 		
 				return <li tabIndex = {0} ref = {liRef} onKeyDown = {(e)=>hoverOverPlayer(e)} onMouseEnter={(e)=>hoverOverPlayer(e)} onClick =  {(e)=>hoverOverPlayer(e)} className = {InactiveClass} id = {d.ID} key = {d.ID}>
 		  			
-		  			<span className = 'First-Name'>{d.First}</span>
-		  			<span className = 'Last-Name'>{d.Last}</span>
-		  			<span className = 'Stat'>{d.Goals}</span>
+		  			<p className = 'First-Name'>{d.First}</p>
+		  			<p className = 'Last-Name'>{d.Last}</p>
+		  			<p className = 'Stat'>{d.Goals}</p>
 				</li>
 				}) : null}
 	  			{triggerStats && statSelect === 3 && playerPos !== 1? listOfStats.sort((a,b) => b.Assists - a.Assists ).slice(0,10).map((d, index)=>{
 		
 				return <li tabIndex = {0} ref = {liRef} onKeyDown = {(e)=>hoverOverPlayer(e)} onMouseEnter={(e)=>hoverOverPlayer(e)} onClick =  {(e)=>hoverOverPlayer(e)} className = {InactiveClass} id = {d.ID} key = {d.ID}>
 		  			
-		  			<span className = 'First-Name'>{d.First}</span>
-		  			<span className = 'Last-Name'>{d.Last}</span>
-		  			<span className = 'Stat'>{d.Assists}</span>
+		  			<p className = 'First-Name'>{d.First}</p>
+		  			<p className = 'Last-Name'>{d.Last}</p>
+		  			<p className = 'Stat'>{d.Assists}</p>
 				</li>
 				}) : null}
 				{/* The 3 .maps below will run at different times depending on which stat is selected. These 3 are specifically for goalie positions */}
@@ -249,30 +253,30 @@ function LeaderStats({playerPos, teams, statSelect}){
   
   				return <li tabIndex = {0} ref = {liRef} onKeyDown = {(e)=>hoverOverPlayer(e)} onClick = {(e)=>hoverOverPlayer(e)} onMouseEnter={(e)=>hoverOverPlayer(e)} className = {InactiveClass} id = {d.ID} key = {d.ID}>
 					
-					<span className = 'First-Name'>{d.First}</span>
-					<span className = 'Last-Name'>{d.Last}</span>
-					<span className = 'Stat'>{parseInt(d.GAA).toFixed(2)}</span>
+					<p className = 'First-Name'>{d.First}</p>
+					<p className = 'Last-Name'>{d.Last}</p>
+					<p className = 'Stat'>{parseInt(d.GAA).toFixed(2)}</p>
 				</li>
   				}): null}
 				{triggerStats && statSelect === 2 && playerPos === 1? listOfStats.sort((a,b) => b.SavePercentage - a.SavePercentage ).slice(0,10).map((d, index)=>{
   
   				return <li tabIndex = {0} ref = {liRef} onKeyDown = {(e)=>hoverOverPlayer(e)} onMouseEnter={(e)=>hoverOverPlayer(e)} onClick =  {(e)=>hoverOverPlayer(e)} className = {InactiveClass} id = {d.ID} key = {d.ID}>
 					
-					<span className = 'First-Name'>{d.First}</span>
-					<span className = 'Last-Name'>{d.Last}</span>
-					<span className = 'Stat'>{d.SavePercentage}</span>
+					<p className = 'First-Name'>{d.First}</p>
+					<p className = 'Last-Name'>{d.Last}</p>
+					<p className = 'Stat'>{d.SavePercentage}</p>
   				</li>}) : null}
 				{triggerStats && statSelect === 3 && playerPos === 1? listOfStats.sort((a,b) => b.Shutouts - a.Shutouts ).slice(0,10).map((d, index)=>{
   
   				return <li tabIndex = {0} ref = {liRef} onKeyDown = {(e)=>hoverOverPlayer(e)} onMouseEnter={(e)=>hoverOverPlayer(e)} onClick =  {(e)=>hoverOverPlayer(e)} className = {InactiveClass} id = {d.ID} key = {d.ID}>
 					
-					<span className = 'First-Name'>{d.First}</span>
-					<span className = 'Last-Name'>{d.Last}</span>
-					<span className = 'Stat'>{d.Shutouts}</span>
+					<p className = 'First-Name'>{d.First}</p>
+					<p className = 'Last-Name'>{d.Last}</p>
+					<p className = 'Stat'>{d.Shutouts}</p>
   				</li>}) : null}
 			</ul>
-		</div>
-  	</div>
+		</section>
+  	</article>
 	)
   
   

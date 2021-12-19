@@ -31,8 +31,8 @@ function CareerStatsTable({playerID}){
 
 
     return(
-        <div className = 'Career-Stats'>
-            <div className = 'Career-Table-Header'>
+        <article className = 'Career-Stats'>
+            <header className = 'Career-Table-Header'>
                 <div className = 'Career-Table-Team-Header-Span-Div'><span className = 'Career-Table-Header-Span'>Season</span></div>
                 <div className = 'Career-Table-Team-Header-Span-Div'><span className = 'Career-Table-Header-Span'>Team</span></div>
                 <div className = 'Career-Table-Header-Span-Div'><span className = 'Career-Table-Header-Span'>GP</span></div>
@@ -49,9 +49,9 @@ function CareerStatsTable({playerID}){
                 <div className = 'Career-Table-Header-Span-Div'><span className = 'Career-Table-Header-Span'>OTG</span></div>
                 <div className = 'Career-Table-Header-Span-Div'><span className = 'Career-Table-Header-Span'>S</span></div>
                 <div className = 'Career-Table-Header-Span-Div'><span className = 'Career-Table-Header-Span'>S%</span></div>
-            </div>
+            </header>
             {isLoaded ? careerData.map((career, index) => {
-                return <div key = {career.season+career.team.name+index} className = 'Career-Table-Season-Row'>
+                return <section key = {career.season+career.team.name+index} className = 'Career-Table-Season-Row'>
                     <div className = 'Career-Table-Season-Row-Highlight-Team-Div'><span className = 'Career-Table-Season-Row-Highlight-Span' >{formatDate(career.season)}</span></div>
                     <div className = 'Career-Table-Season-Row-Highlight-Team-Div'><span className = 'Career-Table-Season-Row-Highlight-Span'>{career.team.name}</span></div>
                     <div className = 'Career-Table-Season-Row-Span-Div'><span className = 'Career-Table-Season-Row-Span'>{career.stat.games !== undefined? career.stat.games : 'N/A'}</span></div>
@@ -68,9 +68,9 @@ function CareerStatsTable({playerID}){
                     <div className = 'Career-Table-Season-Row-Span-Div'><span className = 'Career-Table-Season-Row-Span'>{career.stat.overTimeGoals !== undefined? career.stat.overTimeGoals : 'N/A'}</span></div>
                     <div className = 'Career-Table-Season-Row-Span-Div'><span className = 'Career-Table-Season-Row-Span'>{career.stat.shots !== undefined? career.stat.shots : 'N/A'}</span></div>
                     <div className = 'Career-Table-Season-Row-Span-Div'><span className = 'Career-Table-Season-Row-Span'>{career.stat.shotPct !== undefined? career.stat.shotPct : 'N/A'}</span></div>
-                </div>}):null}
+                </section>}):null}
 
-                {isLoaded?<div className = 'Career-Table-Row'>
+                {isLoaded?<footer className = 'Career-Table-Row'>
                     <div className = 'Career-Table-Row-Highlight-Divider-Div'><span className = 'Career-Table-Row-Highlight-Span' >Career</span></div>
                     <div className = 'Career-Table-Row-Highlight-Divider-Div'></div>
                     <div className = 'Career-Table-Row-Span-Div'><span className = 'Career-Table-Row-Span'>{sumCareerStats(careerData, 'games')}</span></div>
@@ -87,8 +87,8 @@ function CareerStatsTable({playerID}){
                     <div className = 'Career-Table-Row-Span-Div'><span className = 'Career-Table-Row-Span'>{sumCareerStats(careerData, 'overTimeGoals')}</span></div>
                     <div className = 'Career-Table-Row-Span-Div'><span className = 'Career-Table-Row-Span'>{sumCareerStats(careerData, 'shots')}</span></div>
                     <div className = 'Career-Table-Row-Span-Div'><span className = 'Career-Table-Row-Span'>{sumCareerStats(careerData, 'shotPct').toFixed(2)}</span></div>
-                </div>:null}
-        </div>
+                </footer>:null}
+        </article>
     );
 } 
 export default CareerStatsTable;

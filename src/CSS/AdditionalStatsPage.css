@@ -88,13 +88,13 @@
     
 }
 
-.Name-Container span{
+.Name-Container p{
     font-size: clamp(1.5rem, 1.0597rem + 2.0126vw, 7.5rem);
     margin-right: 2%;
     color: var(--text-color);
     opacity: var(--text-opacity);
+    margin: 0;margin: 1% 1% 1% 1%;
 }
-
 .Extra-Stats-Container{
     width: 100%;
     display: flex;
@@ -109,15 +109,16 @@
     display: none;
 }
 
-.Extra-Stats-Container span{
+.Extra-Stats-Container p{
     font-size: clamp(0.65rem, 0.3308rem + 1.4591vw, 5rem);
     margin-top: 1%;
     margin-right: 2%;
     color: var(--text-color);
     opacity: var(--text-opacity);
+    margin: 1% 1% 1% 1%;
 }
 
-.Span-Seperator{
+.p-Seperator{
     border-right: 3px solid var(--separator-color);
     padding-right: 1%;
 }
@@ -156,6 +157,9 @@
     color: var(--text-color);
     opacity: var(--text-opacity);
     font-size: clamp(0.65rem, 0.3933rem + 1.2833vw, 4.5rem);
+}
+.Detail-Headers p, .Detail-Stats p{
+    margin: 1% 1% 1% 1%;
 }
 .Last-Games-Title-Container{
     width: max-content;
@@ -199,7 +203,7 @@
         
     }
 
-    .Extra-Stats-Container-Mobile span{
+    .Extra-Stats-Container-Mobile p{
         font-size: clamp(0.65rem, 0.3308rem + 1.4591vw, 5rem);
         margin-right: 2%;
         color: var(--text-color);

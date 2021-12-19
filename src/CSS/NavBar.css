@@ -25,11 +25,12 @@
     outline: none;
 }
 
-.H2-Logo{
+.H1-Logo{
     margin-left: 5% ;
     color:var(--text-color);
     opacity: var(--text-opacity);
     outline: none;
+    width: 100%;
 }
 
 
@@ -38,7 +39,10 @@
     outline: none;
 }
 
-
+.Filter-Icon{
+    background: none;
+    border: 0;
+}
 
 .Sunny-Icon :hover{
  color: #FDB813;

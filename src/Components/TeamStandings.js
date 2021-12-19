@@ -61,78 +61,78 @@ function TeamStandings(){
 
     return(
         <div className = 'Team-Standings-Container'>
-            <div className = 'Team-Standings-Title'>
+            <header className = 'Team-Standings-Title'>
                 <h1 className = 'H1-TeamStandings'> Team Standings</h1>
-            </div>
-            <div tabIndex = {0} className = 'Division-Container'>
-                <div tabIndex = {0} id = {0} className = {cssMetropolitan} onKeyDown = {()=> setDivisionNo(0)} onClick = {()=> setDivisionNo(0)}>
-                    <h3>MET</h3>
-                </div>
-                <div tabIndex = {0} id = {1} className = {cssAtlantic} onKeyDown = {()=> setDivisionNo(1)} onClick = {()=> setDivisionNo(1)}>
-                    <h3>ATL</h3>
-                </div>
-                <div tabIndex = {0} id = {2} className = {cssCentral} onKeyDown = {()=> setDivisionNo(2)} onClick = {()=> setDivisionNo(2)}>
-                    <h3>CEN</h3>
-                </div>
-                <div tabIndex = {0} id = {3} className = {cssPacific} onKeyDown = {()=> setDivisionNo(3)} onClick = {()=> setDivisionNo(3)}>
-                    <h3>PAC</h3>
-                </div>
-            </div>
-            <div className = 'Standings-Table'>
-                    <div className = 'Standings-Row'>
-                    <div className = 'Standings-Data-Title'><span>Rank</span></div>
-                    <div className = 'Standings-Data-Team-Title'><span>Team</span></div>
-                    <div className = 'Standings-Data-Title'><span>GP</span></div>
-                    <div className = 'Standings-Data-Title'><span>W</span></div>
-                    <div className = 'Standings-Data-Title'><span>L</span></div>
-                    <div className = 'Standings-Data-Title'><span>OT</span></div>
-                    <div className = 'Standings-Data-Title'><span>PTS</span></div>
-                    <div className = 'Standings-Data-Title'><span>Streak</span></div>
-                    </div>
+            </header>
+            <nav tabIndex = {0} className = 'Division-Container'>
+                <button tabIndex = {0} id = {0} className = {cssMetropolitan} onKeyDown = {()=> setDivisionNo(0)} onClick = {()=> setDivisionNo(0)}>
+                    <h2>MET</h2>
+                </button>
+                <button tabIndex = {0} id = {1} className = {cssAtlantic} onKeyDown = {()=> setDivisionNo(1)} onClick = {()=> setDivisionNo(1)}>
+                    <h2>ATL</h2>
+                </button>
+                <button tabIndex = {0} id = {2} className = {cssCentral} onKeyDown = {()=> setDivisionNo(2)} onClick = {()=> setDivisionNo(2)}>
+                    <h2>CEN</h2>
+                </button>
+                <button tabIndex = {0} id = {3} className = {cssPacific} onKeyDown = {()=> setDivisionNo(3)} onClick = {()=> setDivisionNo(3)}>
+                    <h2>PAC</h2>
+                </button>
+            </nav>
+            <section className = 'Standings-Table'>
+                    <header className = 'Standings-Row'>
+                        <div className = 'Standings-Data-Title'><h3>Rank</h3></div>
+                        <div className = 'Standings-Data-Team-Title'><h3>Team</h3></div>
+                        <div className = 'Standings-Data-Title'><h3>GP</h3></div>
+                        <div className = 'Standings-Data-Title'><h3>W</h3></div>
+                        <div className = 'Standings-Data-Title'><h3>L</h3></div>
+                        <div className = 'Standings-Data-Title'><h3>OT</h3></div>
+                        <div className = 'Standings-Data-Title'><h3>PTS</h3></div>
+                        <div className = 'Standings-Data-Title'><h3>Streak</h3></div>
+                    </header>
             
 
                 {divisionArr.map((d)=>(
                     
-                    <div key = {d.team.id} className = 'Standings-Row'>
-                    <div className = 'Standings-Data'><span>{d.divisionRank}</span></div>
-                    <div className = 'Standings-Data-Team'><span>{d.team.name}</span></div>
-                    <div className = 'Standings-Data'><span>{d.gamesPlayed}</span></div>
-                    <div className = 'Standings-Data'><span>{d.leagueRecord.wins}</span></div>
-                    <div className = 'Standings-Data'><span>{d.leagueRecord.losses}</span></div>
-                    <div className = 'Standings-Data'><span>{d.leagueRecord.ot}</span></div>
-                    <div className = 'Standings-Data'><span>{d.points}</span></div>
-                    <div className = 'Standings-Data'><span>{d.streak.streakCode}</span></div>
-                    </div>
+                    <section key = {d.team.id} className = 'Standings-Row'>
+                        <div className = 'Standings-Data'><p>{d.divisionRank}</p></div>
+                        <div className = 'Standings-Data-Team'><p>{d.team.name}</p></div>
+                        <div className = 'Standings-Data'><p>{d.gamesPlayed}</p></div>
+                        <div className = 'Standings-Data'><p>{d.leagueRecord.wins}</p></div>
+                        <div className = 'Standings-Data'><p>{d.leagueRecord.losses}</p></div>
+                        <div className = 'Standings-Data'><p>{d.leagueRecord.ot}</p></div>
+                        <div className = 'Standings-Data'><p>{d.points}</p></div>
+                        <div className = 'Standings-Data'><p>{d.streak.streakCode}</p></div>
+                    </section>
             
                 ))}
             
-            </div>
-            <div className = 'Legend'>
-                <div className = 'Legend-Title'>
-                    <h4>Legend</h4>
-                </div>
-                <div className = 'Legend-Description'>
-                    <div className = 'Legend-Acronym'>
+            </section>
+            <section className = 'Legend'>
+                <header className = 'Legend-Title'>
+                    <h3>Legend</h3>
+                </header>
+                <section className = 'Legend-Description'>
+                    <section className = 'Legend-Acronym'>
                         <p>GP</p>
                         <p>W</p>
                         <p>L</p>
                         <p>OT</p>
                         <p>PTS</p>
                         <p>Streak</p>
-                    </div>
-                    <div className = 'Legend-Acronym-Description'>
+                    </section>
+                    <section className = 'Legend-Acronym-Description'>
                         <p>Games Played</p>
                         <p>Wins (Worth 2 points)</p>
                         <p>Losses (Worth 0 points)</p>
                         <p> Overtime Losses (Worth 1 point)</p>
                         <p>Points</p>
                         <p>W/L (Win/Loss) #(Length of streak)</p>
-                    </div>
+                    </section>
                     
-                </div>
+                </section>
                     
                     
-            </div>
+            </section>
         </div>
     );
 }

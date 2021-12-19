@@ -105,67 +105,70 @@ function LeagueLeaders({showStats, getListTeams, theme}){
 		}
 	}
 
-	//This function allows the user to navigate by keyboard.
-	function handleArrowKey(event){
+	// //This function allows the user to navigate by keyboard.
+	// function handleArrowKey(event){
 		
-		if(event.key === 'Enter'){
-			if(event.target.id === '-'){
+	// 	if(event.key === 'Enter'){
+	// 		if(event.target.id === '-'){
 				
-				selectPosition('-');
-			}else if(event.target.id === '+'){
+	// 			selectPosition('-');
+	// 		}else if(event.target.id === '+'){
 				
-				selectPosition('+');
-			}
-		}
+	// 			selectPosition('+');
+	// 		}
+	// 	}
 		
-	}
+	// }
 
-	//This function also allows the user to navigate with a keyboard and shows the css correctly when that happens.
-	function handleEnter(event){
+	// //This function also allows the user to navigate with a keyboard and shows the css correctly when that happens.
+	// function handleEnter(event){
 		
-		if(event.key === 'Enter'){
-			if(Stats1Ref.current === event.currentTarget){
-				handleStatChange(event);
-				Stats1Ref.current.focus();
-			}else if (Stats2Ref.current === event.currentTarget){
-				handleStatChange(event);
-				Stats2Ref.current.focus();
-			}else if(Stats3Ref.current === event.currentTarget){
-				handleStatChange(event);
-				Stats3Ref.current.focus();
-			}
-		}
+	// 	if(event.key === 'Enter'){
+	// 		if(Stats1Ref.current === event.currentTarget){
+	// 			handleStatChange(event);
+	// 			Stats1Ref.current.focus();
+	// 		}else if (Stats2Ref.current === event.currentTarget){
+	// 			handleStatChange(event);
+	// 			Stats2Ref.current.focus();
+	// 		}else if(Stats3Ref.current === event.currentTarget){
+	// 			handleStatChange(event);
+	// 			Stats3Ref.current.focus();
+	// 		}
+	// 	}
 		
-	}
+	// }
 
 
     return(
         <div className = 'Leaders-Container'>
-            <div tabIndex = {0} className = 'Leaders-Title'>
+            <section className = 'Leaders-Title'>
+                <button className = 'Left-Button' onClick={() => selectPosition('-')}>
+                	<FaChevronLeft id = '-' aria-label = 'Select position before current one' className = 'toggleArrowLeft' size = {36} /> 
+				</button>
+
+                <p aria-label = 'Currently selected position' className = 'Player-Position-Type'>{title[titleNo]}</p>
                 
-                   <FaChevronLeft tabIndex = {0} id = '-' aria-label = 'Select position before current one' className = 'toggleArrowLeft' size = {36} onClick={() => selectPosition('-')} onKeyDown ={(e)=>handleArrowKey(e)}/> 
-              
-                
-                <span aria-label = 'Currently selected position' className = 'Player-Position-Type'>{title[titleNo]}</span>
-                
-                   <FaChevronRight tabIndex = {0} id = '+' aria-label = 'Select position after current one' className = 'toggleArrowRight' size = {36} onClick={() => selectPosition('+')} onKeyDown ={(e)=>handleArrowKey(e)}/> 
+				<button className = 'Right-Button' onClick={() => selectPosition('+')}>
+					<FaChevronRight id = '+' aria-label = 'Select position after current one' className = 'toggleArrowRight' size = {36}/>
+				</button>
+                    
                 
                 
-            </div>
-            <div tabIndex = {0} className = 'Leaders-Selection-Container'>
-                <div className = {cssClass1} >
-                    <p tabIndex = {0} aria-label = 'Click to show points stat or goals against average if goalie' ref = {Stats1Ref} onKeyDown ={(e)=>handleEnter(e)} onClick = {(e)=> handleStatChange(e)}>{titleNo === 1 ? goalieOptions[0]: nonGoalieOptions[0]}</p>
-                </div>
-                <div className = {cssClass2} >
-                    <p tabIndex = {0} aria-label = 'Click to show goals stat or save percentage if goalie' ref = {Stats2Ref} onKeyDown ={(e)=>handleEnter(e)} onClick = {(e)=> handleStatChange(e)}>{titleNo === 1 ? goalieOptions[1]: nonGoalieOptions[1]}</p>
-                </div>
-                <div className = {cssClass3}>
-                    <p tabIndex = {0} aria-label = 'Click to show assists stat or shutouts if goalie' ref = {Stats3Ref} onKeyDown ={(e)=>handleEnter(e)} onClick = {(e)=> handleStatChange(e)}>{titleNo === 1 ? goalieOptions[2]: nonGoalieOptions[2]}</p>
-                </div>
-            </div>
-            <div className = 'Leaders-Stats-Container'>
+            </section>
+            <section className = 'Leaders-Selection-Container'>
+                <button className = {cssClass1} onClick = {(e)=> handleStatChange(e)}>
+                    <p aria-label = 'Click to show points stat or goals against average if goalie' ref = {Stats1Ref}>{titleNo === 1 ? goalieOptions[0]: nonGoalieOptions[0]}</p>
+                </button>
+                <button className = {cssClass2} onClick = {(e)=> handleStatChange(e)}>
+                    <p aria-label = 'Click to show goals stat or save percentage if goalie' ref = {Stats2Ref}>{titleNo === 1 ? goalieOptions[1]: nonGoalieOptions[1]}</p>
+                </button>
+                <button className = {cssClass3} onClick = {(e)=> handleStatChange(e)}>
+                    <p aria-label = 'Click to show assists stat or shutouts if goalie' ref = {Stats3Ref}>{titleNo === 1 ? goalieOptions[2]: nonGoalieOptions[2]}</p>
+                </button>
+            </section>
+            <section className = 'Leaders-Stats-Container'>
                 {showStats ? <LeaderStats playerPos = {titleNo} teams = {getListTeams} statSelect = {statSelect}/> : <Instruction/>}
-            </div>
+            </section>
             
         </div>
     );

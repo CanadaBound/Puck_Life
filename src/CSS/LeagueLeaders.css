@@ -25,9 +25,6 @@
     opacity: var(--text-opacity);
 }
 
-/* .Leaders-Title:focus-within{
-    border: 1px solid var(--separator-color);
-} */
 
 .Leaders-Selection-Container{
     height: max-content;
@@ -39,16 +36,18 @@
     flex-grow: 1;
     border-bottom: 1px solid var(--separator-color);
     outline: none;
-    /* padding-bottom: 1.3%; */
+    
 }
 
-/* .Leaders-Selection-Container:focus-within{
-    border: 1px solid var(--separator-color);
-} */
 
 .Leaders-Stats-Container{
     height: max-content;
     width: 100%;
+}
+
+.Left-Button, .Right-Button{
+    border: 0;
+    background: none;
 }
 
 .toggleArrowLeft :hover,.toggleArrowRight :hover {
@@ -78,6 +77,9 @@
     font-weight: 600;
     cursor: pointer;
     outline: none;
+    border: 0;
+    background: none;
+    
 }
 .Stat-Select-1-Active p, .Stat-Select-2-Active p, .Stat-Select-3-Active p,.Stat-Select-1 p, .Stat-Select-2 p, .Stat-Select-3 p{
     outline: none;
@@ -88,11 +90,16 @@
 .Stat-Select-1-Active, .Stat-Select-2-Active, .Stat-Select-3-Active{
     color: #0088df;
     margin: 2.5% 0 0 5%;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
     border-bottom: 5px solid #0088df;
     font-weight: 800;
     cursor: default;
     font-size: 1.25em;
     outline: none;
+    
+    background: none;
 }
 
 .Stat-Select-1:hover, .Stat-Select-2:hover, .Stat-Select-3:hover{
@@ -109,6 +116,7 @@
     color: var(--text-color);
     opacity: var(--text-opacity);
     outline: none;
+    margin: 0;
 }
 
 @media screen and (max-width: 730px){

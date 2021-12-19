@@ -28,6 +28,7 @@ function TeamSelector( {toggleStats, setListTeams}) {
         //the id to the list. If there's teams already in the list we just add the team to the list. 
         //If the team already exists in the list and the list has only one team in it, we remove the team and stop displaying the stats
         //if there is more than 1 team we just remove the team from the list.
+
         const selectedTeamsCopy = [...selectedTeams];
         if(selectedTeams.includes(e.currentTarget.id)){
             if(selectedTeams.length <= 1){
@@ -102,11 +103,11 @@ function TeamSelector( {toggleStats, setListTeams}) {
     }
 
     return (
-        <div tabIndex = {0} ref = {imageDivRef} className = 'Team-Logo-Container'>
+        <section ref = {imageDivRef} className = 'Team-Logo-Container'>
             {teamDetail.map((Teams, index)=>{
-                return <img ref = {imageRef} tabIndex = {index === 0 ? 0 : -1} aria-label = 'Click to select team' onClick={(e) => handleClick(e)} onKeyDown = {(e)=> handleKeyDown(e)}key = {Teams.ID} id = {Teams.ID} alt = {Teams.Name +' Logo'} src = {Teams.URL} className = 'logo'/>
+                return <button className = 'logo' onClick={(e) => handleClick(e)} key = {Teams.ID} id = {Teams.ID}><img ref = {imageRef} alt = {Teams.Name +' Logo'} src = {Teams.URL}/></button>
             })}
-        </div>
+        </section>
     );
 }
   export default TeamSelector;

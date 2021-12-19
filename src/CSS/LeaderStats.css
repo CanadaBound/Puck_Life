@@ -43,13 +43,14 @@
 }
 
 .Stat{
-    
+    margin: 0;
     float:inline-end;
 }
 
 .First-Name{
-  float: inline-start;
-  margin: 0 1.5% 0 1.5%;
+    margin: 0;
+    float: inline-start;
+    margin: 0 1.5% 0 1.5%;
 }
 
 .Last-Name{
@@ -156,9 +157,13 @@
     border-left: 1px solid var(--separator-color);
     cursor: pointer;
 }
-
-.Player-Name-Container span{
+.Link-Additional-Stats{
+    text-decoration: none;
+}
+.Player-Name-Container p{
+    color: var(--text-color);
     border-bottom: 1px dotted var(--separator-color);
+    margin: 0;
 }
 
 .Team-Name-Container{
@@ -200,10 +205,12 @@
     justify-content: center;
 }
 
+
 .Stat-Type{
     font-size: clamp(0.75rem, 0.6000rem + 0.7500vw, 3rem);
     color: var(--text-color);
     opacity: var(--text-opacity);
+    margin: 0;
 }
 
 .Stat-Value{
@@ -211,6 +218,7 @@
     color: var(--text-color);
     font-weight: 800;
     opacity: var(--text-opacity);
+    margin: 0;
 }
 
 @media screen and (max-width: 1000px){

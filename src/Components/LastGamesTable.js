@@ -17,8 +17,8 @@ function LastGamesTable({playerID}){
     }, [fiveGames])
 
     return(
-        <div className = 'Last-Games-Stats'>
-            <div className = 'Last-Games-Table-Header'>
+        <article className = 'Last-Games-Stats'>
+            <header className = 'Last-Games-Table-Header'>
                 <div className = 'Last-Games-Table-Team-Header-Span-Div'><span className = 'Last-Games-Table-Header-Span'>Opponent</span></div>
                 <div className = 'Last-Games-Table-Team-Header-Span-Div'><span className = 'Last-Games-Table-Header-Span'>Date</span></div>
                 <div className = 'Last-Games-Table-Header-Span-Div'><span className = 'Last-Games-Table-Header-Span'>G</span></div>
@@ -31,9 +31,9 @@ function LastGamesTable({playerID}){
                 <div className = 'Last-Games-Table-Header-Span-Div'><span className = 'Last-Games-Table-Header-Span'>S</span></div>
                 <div className = 'Last-Games-Table-Header-Span-Div'><span className = 'Last-Games-Table-Header-Span'>Shifts</span></div>
                 <div className = 'Last-Games-Table-Header-Span-Div'><span className = 'Last-Games-Table-Header-Span'>TOI</span></div>
-            </div>
+            </header>
             {isLoaded?fiveGames.slice(0,5).map( games => {
-            return <div key = {games.team.id+games.opponent.id+games.date} className = 'Last-Games-Table-Row'>
+            return <section key = {games.team.id+games.opponent.id+games.date} className = 'Last-Games-Table-Row'>
                 <div className = 'Last-Games-Table-Row-Highlight-Team-Div'><span className = 'Last-Games-Table-Row-Highlight-Span' >{games.opponent.name}</span></div>
                 <div className = 'Last-Games-Table-Row-Highlight-Team-Div'><span className = 'Last-Games-Table-Row-Highlight-Span'>{games.date}</span></div>
                 <div className = 'Last-Games-Table-Row-Span-Div'><span className = 'Last-Games-Table-Row-Span'>{games.stat.goals}</span></div>
@@ -46,7 +46,7 @@ function LastGamesTable({playerID}){
                 <div className = 'Last-Games-Table-Row-Span-Div'><span className = 'Last-Games-Table-Row-Span'>{games.stat.shots}</span></div>
                 <div className = 'Last-Games-Table-Row-Span-Div'><span className = 'Last-Games-Table-Row-Span'>{games.stat.shifts}</span></div>
                 <div className = 'Last-Games-Table-Row-Span-Div'><span className = 'Last-Games-Table-Row-Span'>{games.stat.timeOnIce}</span></div>
-            </div>}): null}
-        </div>
+            </section>}): null}
+        </article>
     );
 } export default LastGamesTable;

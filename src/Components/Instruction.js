@@ -7,21 +7,21 @@ function Instruction(){
 return(
 <>
     {/* Instructions screen for desktop or large screen users  */}
-    <div className = 'Instruction-Container'>
-        <div className = 'Upper-Arrow-SVG'>
+    <article className = 'Instruction-Container'>
+        <section className = 'Upper-Arrow-SVG'>
             <svg aria-label="Arrow pointing at position navigation panel" xmlns="http://www.w3.org/2000/svg" width="100" height="75">
                 <g fill="none" stroke="#9a9c9a" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" strokeMiterlimit="10">
                     <path d="M9.748 73.448c-5.466-9.41-12.212-20.124.532-26.994 9.499-5.12 21.629-3.752 30.447 1.811 8.999 5.677 16.714 14.104 28.574 9.748 18.443-6.774 19.853-35.315 22.447-50.898"/>
                     <path d="M97.003 12.678c-2.956-3.242-2.408-7.53-4.574-11.126-1.822 2.634-5.759 7.808-8.893 9.052"/>
                 </g>
             </svg>
-        </div>
-        <div className = 'Upper-Instruction-Wording-Container'>
+        </section>
+        <section className = 'Upper-Instruction-Wording-Container'>
             <p className = 'Upper-Instruction-Wording'>
                 Use these to move between different stats for different positions.
             </p>
-        </div>
-        <div className = 'Lower-Instruction-Container'>
+        </section>
+        <section className = 'Lower-Instruction-Container'>
             <div className = 'Lower-Arrow-SVG'>
             <svg aria-label="Arrow pointing at team selection panel" xmlns="http://www.w3.org/2000/svg" width="60" height="55">
                 <g fill="none" stroke="#9a9c9a" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" strokeMiterlimit="10">
@@ -35,14 +35,14 @@ return(
                     Scroll and select one or more teams to load their stats
                 </p>
             </div>
-        </div>
-    </div>
+        </section>
+    </article>
     {/* Instructions screen for mobile or small screen users  */}
-    <div className = 'Instruction-Container-Mobile'>
-      <div className = 'Instruction-Text-Div'><span className = 'Text-Number'>1. </span><span>Scroll and select a team by tapping on the logo.</span></div>  
-      <div className = 'Instruction-Text-Div'><span className = 'Text-Number'>2. </span><span>Tap the left or right arrow to change the player positions.</span></div>  
-      <div className = 'Instruction-Text-Div'><span className = 'Text-Number'>3. </span><span>Tap on one of the 3 stats to display the chosen statistic.</span></div>  
-    </div>
+    <article className = 'Instruction-Container-Mobile'>
+      <section className = 'Instruction-Text-Div'><p className = 'Text-Number'>1. </p><p>Scroll and select a team by tapping on the logo.</p></section>  
+      <section className = 'Instruction-Text-Div'><p className = 'Text-Number'>2. </p><p>Tap the left or right arrow to change the player positions.</p></section>  
+      <section className = 'Instruction-Text-Div'><p className = 'Text-Number'>3. </p><p>Tap on one of the 3 stats to display the chosen statistic.</p></section>  
+    </article>
 </>
 );
 

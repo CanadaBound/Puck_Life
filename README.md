@@ -17,3 +17,5 @@ An NHL statistics website offering up the most important information about each 
 
 
 ## **GIFs**
+![GIF of pucklife website](https://github.com/CanadaBound/Puck_Life/blob/master/PuckLifeGIF.gif "Pucklife website GIF")
+

@@ -1,5 +1,6 @@
 # **Puck Life**
 https://pucklife.netlify.app/
+
 An NHL statistics website offering up the most important information about each player and team. You can check out the entire career of your favourite player, compare their performence over the last 5 games or check out where they stack up against their team mates or competing players!
 ## Developed Using:
 <img alt="React" src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" />
